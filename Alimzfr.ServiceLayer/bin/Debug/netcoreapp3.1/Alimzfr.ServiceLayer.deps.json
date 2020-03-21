@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Alimzfr.ServiceLayer/1.0.0": {
+        "dependencies": {
+          "Alimzfr.ModelLayer": "1.0.0"
+        },
+        "runtime": {
+          "Alimzfr.ServiceLayer.dll": {}
+        }
+      },
+      "Alimzfr.ModelLayer/1.0.0": {
+        "runtime": {
+          "Alimzfr.ModelLayer.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Alimzfr.ServiceLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Alimzfr.ModelLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
