@@ -3,3 +3,6 @@
 ################################################################################
 
 /Alimzfr.DataLayer/obj
+/Alimzfr.DomainLayer/obj
+/Alimzfr.ModelLayer/obj
+/Alimzfr.ServiceLayer/obj
