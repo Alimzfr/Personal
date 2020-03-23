@@ -4,14 +4,16 @@ using Alimzfr.DataLayer.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Alimzfr.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200323070428_initEntities")]
+    partial class initEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -150,7 +152,7 @@ namespace Alimzfr.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CollegeEducations");
+                    b.ToTable("collegeEducations");
                 });
 
             modelBuilder.Entity("Alimzfr.DomainLayer.Entities.Education", b =>
