@@ -11,6 +11,7 @@ namespace Alimzfr.ServiceLayer.Profiles
     {
         public ContentMappingProfile()
         {
+            CreateMap<MenuItem, MenuItemDto>();
             CreateMap<About, AboutDto>();
             CreateMap<Skill, SkillDto>();
             CreateMap<Experience, ExperienceDto>()

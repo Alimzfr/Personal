@@ -1,5 +1,6 @@
 $sidebarWith: 225px;
-$sidebarBackgroundColor: rgba(204, 204, 204, 0.8);;
+$sidebarBackgroundColor: rgba(204, 204, 204, 0.8);
+;
 
 
 .alimzfr-sidebar {
@@ -9,13 +10,20 @@ $sidebarBackgroundColor: rgba(204, 204, 204, 0.8);;
   transition-duration: .5s;
 }
 
-.alimzfr-sidebar-toggle{
+.alimzfr-sidebar-toggle {
   margin-left: -$sidebarWith;
 }
 
 @media screen and (max-width: 768px) {
-  .alimzfr-sidebar{
-    position: absolute;
-    padding-top: 50px;
+  .alimzfr-sidebar {
+    position: fixed;
+    top: 50px;
+    z-index: 10;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .alimzfr-sidebar {
+    overflow-y: scroll;
   }
 }

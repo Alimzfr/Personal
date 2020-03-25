@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {MenuItemsModel} from '../../sidebar.models/menu-items-model';
+import {Component, OnInit} from '@angular/core';
+import {MenuItemsModel} from './menu.models/menu-Item.model';
+import {MenuService} from './menu.services/menu.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,20 +9,17 @@ import {MenuItemsModel} from '../../sidebar.models/menu-items-model';
 })
 export class MenuComponent implements OnInit {
   menuItems: MenuItemsModel[];
-  constructor() { }
 
-  ngOnInit(): void {
-    this.menuItems = [
-      {id: 1, title: 'Home', link: 'Home'},
-      {id: 2, title: 'About', link: 'About'},
-      {id: 3, title: 'Education', link: 'Education'},
-      {id: 4, title: 'Experience', link: 'Experience'},
-      {id: 5, title: 'Skills', link: 'Skills'},
-      {id: 6, title: 'Contact', link: 'Contact'},
-      {id: 7, title: 'Blog', link: 'Blog'},
-    ];
+  constructor(private service: MenuService) {
   }
 
+  ngOnInit(): void {
+    this.getMenuItems();
+  }
 
-
+  private getMenuItems() {
+    this.service.getMenuItems().subscribe(value => {
+      this.menuItems = value;
+    });
+  }
 }

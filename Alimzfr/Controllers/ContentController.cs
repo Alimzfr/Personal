@@ -23,6 +23,13 @@ namespace Alimzfr.Controllers
         }
 
         [HttpGet]
+        public async Task<IEnumerable<MenuItemDto>> GetMenuItems()
+        {
+            var menuItems = await _contentServices.GetMenuItems();
+            return menuItems;
+        }
+
+        [HttpGet]
         public async Task<IEnumerable<AboutDto>> GetAbouts()
         {
             var abouts = await _contentServices.GetAbouts();

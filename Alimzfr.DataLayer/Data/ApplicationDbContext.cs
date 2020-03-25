@@ -17,6 +17,7 @@ namespace Alimzfr.DataLayer.Data
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
+        public DbSet<MenuItem> MenuItems { get; set; }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Education> Educations { get; set; }

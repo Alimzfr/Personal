@@ -21,6 +21,13 @@ namespace Alimzfr.ServiceLayer.Services
             _mapper = mapper;
         }
 
+        public async Task<IEnumerable<MenuItemDto>> GetMenuItems()
+        {
+            var menuItems = await _context.MenuItems.OrderBy(x=>x.SequenceNumber).ToListAsync();
+            var data = _mapper.Map<List<MenuItem>, List<MenuItemDto>>(menuItems);
+            return data;
+        }
+
         public async Task<IEnumerable<AboutDto>> GetAbouts()
         {
             var abouts = await _context.Abouts.ToListAsync();
