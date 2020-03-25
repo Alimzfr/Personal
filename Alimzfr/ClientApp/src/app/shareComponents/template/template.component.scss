@@ -1,0 +1,21 @@
+$sidebarWith: 225px;
+$sidebarBackgroundColor: rgba(204, 204, 204, 0.8);;
+
+
+.alimzfr-sidebar {
+  background-color: $sidebarBackgroundColor;
+  width: $sidebarWith;
+  height: 100%;
+  transition-duration: .5s;
+}
+
+.alimzfr-sidebar-toggle{
+  margin-left: -$sidebarWith;
+}
+
+@media screen and (max-width: 768px) {
+  .alimzfr-sidebar{
+    position: absolute;
+    padding-top: 50px;
+  }
+}

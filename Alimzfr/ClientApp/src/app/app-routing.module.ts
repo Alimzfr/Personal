@@ -10,13 +10,14 @@ import {SkillsComponent} from './features/skills/skills.component';
 
 
 const routes: Routes = [
-  {component: HomeComponent, path: ':lang?'},
-  {component: AboutComponent, path: ':lang?/About'},
-  {component: BlogComponent, path: ':lang?/Blog'},
-  {component: ContactComponent, path: ':lang?/Contact'},
-  {component: EducationComponent, path: ':lang?/Education'},
-  {component: ExperienceComponent, path: ':lang?/Experience'},
-  {component: SkillsComponent, path: ':lang?/Skills'},
+  {component: HomeComponent, path: ''},
+  {component: HomeComponent, path: 'Home'},
+  {component: AboutComponent, path: 'About'},
+  {component: BlogComponent, path: 'Blog'},
+  {component: ContactComponent, path: 'Contact'},
+  {component: EducationComponent, path: 'Education'},
+  {component: ExperienceComponent, path: 'Experience'},
+  {component: SkillsComponent, path: 'Skills'},
 ];
 
 @NgModule({

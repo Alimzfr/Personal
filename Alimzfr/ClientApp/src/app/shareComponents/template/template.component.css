@@ -1,0 +1,15 @@
+.alimzfr-sidebar {
+  background-color: rgba(204, 204, 204, 0.8);
+  width: 225px;
+  height: 100%;
+  transition-duration: .5s; }
+
+.alimzfr-sidebar-toggle {
+  margin-left: -225px; }
+
+@media screen and (max-width: 768px) {
+  .alimzfr-sidebar {
+    position: absolute;
+    padding-top: 50px; } }
+
+/*# sourceMappingURL=template.component.css.map */

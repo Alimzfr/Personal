@@ -18,6 +18,6 @@ namespace Alimzfr.ModelLayer.Models
         public string PersianDescription { get; set; }
         public string EnglishDescription { get; set; }
         public DateTime GregorianGraduationDate { get; set; }
-        public string PersianGraduationDate { get => GregorianGraduationDate.ToString(); }
+        public string PersianGraduationDate { get => new PersianDateTime(GregorianGraduationDate).ToString(); }
     }
 }

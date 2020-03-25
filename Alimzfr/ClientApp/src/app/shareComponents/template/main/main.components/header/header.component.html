@@ -1,0 +1,45 @@
+<div class="container-fluid bg-dark">
+  <div class="row">
+    <div class="col-12 d-flex flex-row align-items-center alimzfr-toolbar-content">
+      <button mat-icon-button
+              aria-label="Example icon-button with a heart icon"
+              (click)="sidebarToggleHandler()">
+        <fa-icon [icon]="['fas','bars']" [size]="'lg'" [classes]="['text-white']"></fa-icon>
+      </button>
+
+      <img src="../../../../../../assets/myLogo.png"
+           alt="Logo"
+           style="height: 30px; width: auto"
+           class="mx-2">
+
+      <button mat-icon-button
+              class="mr-0 ml-auto"
+              aria-label="Example icon-button with a heart icon">
+        <fa-icon [icon]="['fas','sign-in-alt']" [size]="'lg'" [classes]="['text-white']"></fa-icon>
+      </button>
+
+      <button mat-icon-button
+              [matMenuTriggerFor]="langMenu"
+              class="mr-0 ml-2"
+              aria-label="Example icon-button with a heart icon">
+        <fa-icon [icon]="['fas','globe-europe']" [size]="'lg'" [classes]="['text-white']"></fa-icon>
+      </button>
+      <mat-menu #langMenu="matMenu">
+        <button mat-menu-item>
+          <img src="../../../../../../assets/English%20flag.png"
+               alt="English flag"
+               style="height: 20px; width: auto"
+               class="mx-1">
+          <span>English</span>
+        </button>
+        <button mat-menu-item disabled>
+          <img src="../../../../../../assets/Iran%20flag.png"
+               alt="Iran flag"
+               style="height: 20px; width: auto; filter: opacity(0.4);"
+               class="mx-1">
+          <span>Persian</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</div>

@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="PersianDateTime" Version="1.1.5082.36395" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Alimzfr.DataLayer\Alimzfr.DataLayer.csproj" />
+    <ProjectReference Include="..\Alimzfr.DomainLayer\Alimzfr.DomainLayer.csproj" />
     <ProjectReference Include="..\Alimzfr.ModelLayer\Alimzfr.ModelLayer.csproj" />
   </ItemGroup>
 

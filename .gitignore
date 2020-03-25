@@ -6,4 +6,7 @@
 /Alimzfr.DomainLayer/obj
 /Alimzfr.ModelLayer/obj
 /Alimzfr.ServiceLayer/obj
-/Alimzfr/ClientApp/src
+/Alimzfr.DomainLayer/bin/Debug/netcoreapp3.1
+/Alimzfr.DataLayer/bin/Debug/netcoreapp3.1
+/Alimzfr.ModelLayer/bin/Debug/netcoreapp3.1
+/Alimzfr.ServiceLayer/bin/Debug/netcoreapp3.1

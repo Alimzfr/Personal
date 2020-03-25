@@ -32,7 +32,7 @@ namespace Alimzfr.Data.Migrations
                     b.Property<string>("EnglishDescription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ModifyDate")
+                    b.Property<DateTime?>("ModifyDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PersianDescription")
@@ -133,7 +133,7 @@ namespace Alimzfr.Data.Migrations
                     b.Property<DateTime>("GraduationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("ModifiyDate")
+                    b.Property<DateTime?>("ModifiyDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PersianAcademicField")
@@ -178,7 +178,7 @@ namespace Alimzfr.Data.Migrations
                     b.Property<DateTime>("FromDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("ModifyDate")
+                    b.Property<DateTime?>("ModifyDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PersianCourseName")
@@ -223,7 +223,7 @@ namespace Alimzfr.Data.Migrations
                     b.Property<bool>("IsCurrentJob")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("ModifiyDate")
+                    b.Property<DateTime?>("ModifiyDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PersianCompanyName")
@@ -262,7 +262,7 @@ namespace Alimzfr.Data.Migrations
                     b.Property<int>("Level")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("ModifyDate")
+                    b.Property<DateTime?>("ModifyDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PersianDescription")

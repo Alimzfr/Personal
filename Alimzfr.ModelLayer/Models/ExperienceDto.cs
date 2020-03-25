@@ -17,10 +17,10 @@ namespace Alimzfr.ModelLayer.Models
         public string EnglishDescription { get; set; }
 
         public DateTime GregorianFromDate { get; set; }
-        public string PersianFromDate { get => GregorianFromDate.ToString(); }
+        public string PersianFromDate { get => new PersianDateTime(GregorianFromDate).ToString(); }
 
         public DateTime GregorianToDate { get; set; }
-        public string PersianToDate { get => GregorianToDate.ToString(); }
+        public string PersianToDate { get => new PersianDateTime(GregorianToDate).ToString(); }
 
         public bool IsCurrentJob { get; set; }
     }

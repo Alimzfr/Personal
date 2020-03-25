@@ -1,17 +1,24 @@
-﻿using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace Alimzfr.Controllers
 {
-    public class OidcConfigurationController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class UserController : ControllerBase
     {
-        private readonly ILogger<OidcConfigurationController> logger;
+        private readonly ILogger<UserController> _logger;
 
-        public OidcConfigurationController(IClientRequestParametersProvider clientRequestParametersProvider, ILogger<OidcConfigurationController> _logger)
+        public UserController(IClientRequestParametersProvider clientRequestParametersProvider, ILogger<UserController> logger)
         {
             ClientRequestParametersProvider = clientRequestParametersProvider;
-            logger = _logger;
+            _logger = logger;
         }
 
         public IClientRequestParametersProvider ClientRequestParametersProvider { get; }

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA,gBAAiB;EACf,gBAAgB,EAJO,wBAAwB;EAK/C,KAAK,EANO,KAAK;EAOjB,MAAM,EAAE,IAAI;EACZ,mBAAmB,EAAE,GAAG;;AAG1B,uBAAuB;EACrB,WAAW,EAAE,MAAa;;AAG5B,oCAAqC;EACnC,gBAAgB;IACd,QAAQ,EAAE,QAAQ;IAClB,WAAW,EAAE,IAAI",
+"sources": ["template.component.scss"],
+"names": [],
+"file": "template.component.css"
+}

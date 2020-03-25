@@ -1,0 +1,9 @@
+<div>
+  <button mat-button
+          *ngFor="let item of menuItems"
+          [routerLink]="item.link"
+          [routerLinkActive]="'alimzfr-active-link'"
+          class="w-100">
+    {{item.title}}
+  </button>
+</div>

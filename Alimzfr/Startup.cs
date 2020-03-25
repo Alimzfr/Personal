@@ -12,6 +12,9 @@ using Microsoft.Extensions.Hosting;
 using System;
 using Alimzfr.DataLayer.Data;
 using Alimzfr.DomainLayer.Entities;
+using AutoMapper;
+using Alimzfr.ServiceLayer.Profiles;
+using Alimzfr.ServiceLayer.Services;
 
 namespace Alimzfr
 {
@@ -41,6 +44,19 @@ namespace Alimzfr
                 .AddIdentityServerJwt();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            // Auto Mapper Configurations
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new ContentMappingProfile());
+            });
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
+            // Services
+            services.AddScoped<ContentServices>();
+            services.AddScoped<UserServices>();
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
