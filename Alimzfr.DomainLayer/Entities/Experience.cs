@@ -8,7 +8,7 @@ namespace Alimzfr.DomainLayer.Entities
     {
         public int Id { get; set; }
         public DateTime CreateDate { get; set; }
-        public DateTime? ModifiyDate { get; set; }
+        public DateTime? ModifyDate { get; set; }
         public string PersianJobTitle { get; set; }
         public string EnglishJobTitle { get; set; }
         public string PersianCompanyName { get; set; }

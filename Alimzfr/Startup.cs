@@ -15,6 +15,7 @@ using Alimzfr.DomainLayer.Entities;
 using AutoMapper;
 using Alimzfr.ServiceLayer.Profiles;
 using Alimzfr.ServiceLayer.Services;
+using Alimzfr.ServiceLayer.Interfaces;
 
 namespace Alimzfr
 {
@@ -54,8 +55,8 @@ namespace Alimzfr
             services.AddSingleton(mapper);
 
             // Services
-            services.AddScoped<ContentServices>();
-            services.AddScoped<UserServices>();
+            services.AddScoped<IContentServices, ContentServices>();
+            services.AddScoped<IUserServices, UserServices>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

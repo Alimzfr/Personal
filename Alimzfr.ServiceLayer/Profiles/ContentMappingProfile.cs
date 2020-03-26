@@ -12,21 +12,27 @@ namespace Alimzfr.ServiceLayer.Profiles
         public ContentMappingProfile()
         {
             CreateMap<MenuItem, MenuItemDto>();
+
             CreateMap<About, AboutDto>();
+
             CreateMap<Skill, SkillDto>();
+
             CreateMap<Experience, ExperienceDto>()
                 .ForMember(dest => dest.GregorianFromDate,
                 opt => opt.MapFrom(src => src.FromDate))
                 .ForMember(dest=>dest.GregorianToDate,
                 opt=>opt.MapFrom(src=>src.ToDate));
+
             CreateMap<Education, EducationDto>()
                 .ForMember(dest=>dest.GregorianFromDate,
                 opt=>opt.MapFrom(src=>src.FromDate))
                 .ForMember(dest=>dest.GregorianToDate,
                 opt=>opt.MapFrom(src=>src.ToDate));
+
             CreateMap<CollegeEducation, CollegeEducationDto>()
                 .ForMember(dest=>dest.GregorianGraduationDate,
                 opt=>opt.MapFrom(src=>src.GraduationDate));
+
         }
     }
 }

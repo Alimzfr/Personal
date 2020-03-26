@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Alimzfr.ModelLayer.Models;
+using Alimzfr.ServiceLayer.Interfaces;
 using Alimzfr.ServiceLayer.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,9 +15,9 @@ namespace Alimzfr.Controllers
     [ApiController]
     public class ContentController : ControllerBase
     {
-        private readonly ContentServices _contentServices;
+        private readonly IContentServices _contentServices;
         private readonly ILogger<ContentController> _logger;
-        public ContentController(ILogger<ContentController> logger, ContentServices contentServices)
+        public ContentController(ILogger<ContentController> logger, IContentServices contentServices)
         {
             _logger = logger;
             _contentServices = contentServices;
