@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AboutService} from './about.services/about.service';
+import {AboutModel} from './about.models/about.model';
 
 @Component({
   selector: 'app-about',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
+  abouts: AboutModel[];
 
-  constructor() { }
+  constructor(private service: AboutService) {
+  }
 
   ngOnInit(): void {
+    this.getAbouts();
+  }
+
+  getAbouts() {
+    this.service.getAbouts().subscribe(value => {
+      this.abouts = value;
+    });
   }
 
 }

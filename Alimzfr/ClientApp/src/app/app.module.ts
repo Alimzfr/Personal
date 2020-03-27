@@ -24,6 +24,8 @@ import {MenuComponent} from './shareComponents/template/template.components/side
 import {FooterComponent} from './shareComponents/template/template.components/sidebar/sidebar.components/footer/footer.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {ContentComponent} from './shareComponents/template/template.components/main/main.components/content/content.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {NgApexchartsModule} from 'ng-apexcharts';
 
 
 @NgModule({
@@ -50,10 +52,12 @@ import {ContentComponent} from './shareComponents/template/template.components/m
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgApexchartsModule,
     MatButtonModule,
     MatIconModule,
     FontAwesomeModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

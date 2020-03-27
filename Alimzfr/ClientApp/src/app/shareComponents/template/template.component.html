@@ -1,8 +1,6 @@
-<div class="d-flex w-100 h-100">
-  <app-sidebar class="align-self-stretch alimzfr-sidebar"
-               [class.alimzfr-sidebar-toggle]="!sidebarIsOpen">
-  </app-sidebar>
-  <app-main class="flex-grow-1 align-self-stretch bg-secondary alimzfr-content"
-            (sidebarToggle)="sidebarToggleHandler()">
-  </app-main>
-</div>
+<app-sidebar class="flex-shrink-0 h-auto alimzfr-sidebar"
+             [class.alimzfr-sidebar-toggle]="!sidebarIsOpen">
+</app-sidebar>
+<app-main class="flex-grow-1 h-auto alimzfr-content"
+          (sidebarToggle)="sidebarToggleHandler()">
+</app-main>

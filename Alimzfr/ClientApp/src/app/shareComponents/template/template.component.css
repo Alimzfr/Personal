@@ -11,7 +11,8 @@
   .alimzfr-sidebar {
     position: fixed;
     top: 50px;
-    z-index: 10; } }
+    z-index: 10;
+    height: 100% !important; } }
 @media screen and (max-height: 600px) {
   .alimzfr-sidebar {
     overflow-y: scroll; } }
