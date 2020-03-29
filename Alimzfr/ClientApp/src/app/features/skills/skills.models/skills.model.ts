@@ -1,7 +1,10 @@
 import {
   ApexNonAxisChartSeries,
   ApexPlotOptions,
-  ApexChart
+  ApexChart,
+  ApexTitleSubtitle,
+  ApexFill,
+  ApexStroke
 } from 'ng-apexcharts';
 
 export interface SkillModel {
@@ -13,6 +16,10 @@ export interface SkillModel {
   persianDescription: string;
   englishDescription: string;
   level: number;
+  skillCategoryId: number;
+  persianCategoryName: string;
+  englishCategoryName: string;
+  categoryColor: string;
 }
 
 export interface ChartOptions {
@@ -20,4 +27,8 @@ export interface ChartOptions {
   chart: ApexChart;
   labels: string[];
   plotOptions: ApexPlotOptions;
+  fill?: ApexFill;
+  stroke?: ApexStroke;
+  colors?: string[];
+  subtitle?: ApexTitleSubtitle;
 }

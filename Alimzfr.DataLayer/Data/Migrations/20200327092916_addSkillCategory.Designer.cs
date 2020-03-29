@@ -4,14 +4,16 @@ using Alimzfr.DataLayer.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Alimzfr.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200327092916_addSkillCategory")]
+    partial class addSkillCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,7 +42,7 @@ namespace Alimzfr.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tbl_About");
+                    b.ToTable("Abouts");
                 });
 
             modelBuilder.Entity("Alimzfr.DomainLayer.Entities.ApplicationUser", b =>
@@ -150,7 +152,7 @@ namespace Alimzfr.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tbl_CollegeEducation");
+                    b.ToTable("CollegeEducations");
                 });
 
             modelBuilder.Entity("Alimzfr.DomainLayer.Entities.Education", b =>
@@ -195,7 +197,7 @@ namespace Alimzfr.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tbl_Education");
+                    b.ToTable("Educations");
                 });
 
             modelBuilder.Entity("Alimzfr.DomainLayer.Entities.Experience", b =>
@@ -240,7 +242,7 @@ namespace Alimzfr.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tbl_Experience");
+                    b.ToTable("Experiences");
                 });
 
             modelBuilder.Entity("Alimzfr.DomainLayer.Entities.MenuItem", b =>
@@ -273,7 +275,7 @@ namespace Alimzfr.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tbl_MenuItem");
+                    b.ToTable("MenuItems");
                 });
 
             modelBuilder.Entity("Alimzfr.DomainLayer.Entities.Skill", b =>
@@ -309,9 +311,11 @@ namespace Alimzfr.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SkillCategoryId");
+                    b.HasIndex("SkillCategoryId")
+                        .IsUnique()
+                        .HasFilter("[SkillCategoryId] IS NOT NULL");
 
-                    b.ToTable("Tbl_Skill");
+                    b.ToTable("Skills");
                 });
 
             modelBuilder.Entity("Alimzfr.DomainLayer.Entities.SkillCategory", b =>
@@ -338,7 +342,7 @@ namespace Alimzfr.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tbl_SkillCategory");
+                    b.ToTable("SkillCategories");
                 });
 
             modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.DeviceFlowCodes", b =>
@@ -561,8 +565,8 @@ namespace Alimzfr.Data.Migrations
             modelBuilder.Entity("Alimzfr.DomainLayer.Entities.Skill", b =>
                 {
                     b.HasOne("Alimzfr.DomainLayer.Entities.SkillCategory", "Category")
-                        .WithMany("Skill")
-                        .HasForeignKey("SkillCategoryId");
+                        .WithOne("Skill")
+                        .HasForeignKey("Alimzfr.DomainLayer.Entities.Skill", "SkillCategoryId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

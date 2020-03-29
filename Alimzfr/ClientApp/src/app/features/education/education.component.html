@@ -1,1 +1,100 @@
-<p>education works!</p>
+<app-loading [size]="50" *ngIf="loading"></app-loading>
+<div class="container-fluid" *ngIf="!loading">
+  <div class="row">
+    <div class="col-sm-6 col-12 my-3">
+      <div id="chart">
+        <apx-chart
+          *ngIf="!loading"
+          [chart]="chartOptions.chart"
+          [dataLabels]="chartOptions.dataLabels"
+          [plotOptions]="chartOptions.plotOptions"
+          [yaxis]="chartOptions.yaxis"
+          [fill]="chartOptions.fill"
+          [stroke]="chartOptions.stroke"
+          [tooltip]="chartOptions.tooltip"
+          [series]="chartOptions.series"
+          [xaxis]="chartOptions.xaxis">
+        </apx-chart>
+      </div>
+    </div>
+    <div class="col-sm-6 col-12 my-3" *ngFor="let item of collegeEducations">
+      <mat-card class="bg-transparent border border-white">
+        <mat-card-header>
+          <mat-card-title>College</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+          <div class="mt-2">
+            <div style="vertical-align: middle">
+              <fa-icon [icon]="['fas','graduation-cap']"
+                       [size]="'lg'"
+                       [classes]="['text-primary','text-center','d-inline-block']"
+                       [styles]="{'width':'25px'}">
+              </fa-icon>
+              <strong> Degree: </strong>
+              <span> {{item.englishDegreeLevel}} Of </span>
+              <span>{{item.englishAcademicField}}</span>
+            </div>
+            <div style="vertical-align: middle">
+              <fa-icon [icon]="['fas','university']"
+                       [size]="'lg'"
+                       [classes]="['text-primary','text-center','d-inline-block']"
+                       [styles]="{'width':'25px'}"></fa-icon>
+              <strong> University: </strong>
+              <span>{{item.englishUniversity}}</span>
+            </div>
+            <div style="vertical-align: middle">
+              <fa-icon [icon]="['fas','calendar-check']"
+                       [size]="'lg'"
+                       [classes]="['text-primary','text-center','d-inline-block']"
+                       [styles]="{'width':'25px'}"></fa-icon>
+              <strong> Graduation Date: </strong>
+              <span>{{item.gregorianGraduationDate}}</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-sm-6 col-12 my-3" *ngFor="let item of educations">
+      <mat-card class="bg-transparent border border-white">
+        <mat-card-header>
+          <mat-card-title>Certificate</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+          <div class="mt-2">
+            <div style="vertical-align: middle">
+              <fa-icon [icon]="['fas','book']"
+                       [size]="'lg'"
+                       [classes]="['text-primary','text-center','d-inline-block']"
+                       [styles]="{'width':'25px'}">
+              </fa-icon>
+              <strong> Course: </strong>
+              <span> {{item.englishCourseName}} </span>
+            </div>
+            <div style="vertical-align: middle">
+              <fa-icon [icon]="['fas','university']"
+                       [size]="'lg'"
+                       [classes]="['text-primary','text-center','d-inline-block']"
+                       [styles]="{'width':'25px'}"></fa-icon>
+              <strong> Educational Institute: </strong>
+              <span>{{item.englishEducationalInstitute}}</span>
+            </div>
+            <div style="vertical-align: middle">
+              <fa-icon [icon]="['fas','clock']"
+                       [size]="'lg'"
+                       [classes]="['text-primary','text-center','d-inline-block']"
+                       [styles]="{'width':'25px'}"></fa-icon>
+              <strong> Duration: </strong>
+              <span>{{item.duration}}</span>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>Download</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+  </div>
+</div>

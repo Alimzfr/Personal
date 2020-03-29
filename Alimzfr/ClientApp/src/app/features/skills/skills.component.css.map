@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAAA,MAAO;EACL,OAAO,EAAE,CAAC;EACV,SAAS,EAAE,KAAK;EAChB,MAAM,EAAE,SAAS",
+"sources": ["skills.component.scss"],
 "names": [],
 "file": "skills.component.css"
 }

@@ -15,7 +15,13 @@ namespace Alimzfr.ServiceLayer.Profiles
 
             CreateMap<About, AboutDto>();
 
-            CreateMap<Skill, SkillDto>();
+            CreateMap<Skill, SkillDto>()
+                .ForMember(dest=>dest.PersianCategoryName,
+                opt=>opt.MapFrom(src=>src.Category.PersianCategoryName))
+                .ForMember(dest => dest.EnglishCategoryName,
+                opt => opt.MapFrom(src => src.Category.EnglishCategoryName))
+                .ForMember(dest => dest.CategoryColor,
+                opt => opt.MapFrom(src => src.Category.CategoryColor));
 
             CreateMap<Experience, ExperienceDto>()
                 .ForMember(dest => dest.GregorianFromDate,

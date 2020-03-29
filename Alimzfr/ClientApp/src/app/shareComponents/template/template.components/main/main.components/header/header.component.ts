@@ -21,6 +21,9 @@ export class HeaderComponent implements OnInit {
 
   sidebarToggleHandler() {
     this.sidebarToggle.emit();
+    const windowResizeTrigger = setInterval(() => window.dispatchEvent(new Event('resize')), 10);
+    setTimeout(() => clearInterval(windowResizeTrigger), 600);
+
   }
 
 

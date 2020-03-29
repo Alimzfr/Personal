@@ -1,39 +1,22 @@
-<div class="container-fluid">
+<app-loading [size]="50" *ngIf="loading"></app-loading>
+<div class="container-fluid" *ngIf="!loading">
   <div class="row">
-    <div class="col-12">
-      <h2>MY SKILLS</h2>
-      <small>MY SPECIALTY</small>
-      <hr>
-      <p>
-        The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and
-        devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into
-        the belt and made herself on the way.
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <div id="chart">
-        <apx-chart
-          [series]="chartOptions.series"
-          [chart]="chartOptions.chart"
-          [plotOptions]="chartOptions.plotOptions"
-          [labels]="chartOptions.labels">
-        </apx-chart>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-6" *ngFor="let item of skills">
-      <label>
-        {{item.englishSkillName}}
-      </label>
-      <mat-progress-bar
-        [id]="'skillName'+item.id"
-        [color]="'primary'"
-        [mode]="'determinate'"
-        [value]="item.level">
-      </mat-progress-bar>
+    <div class="col-lg-2 col-md-3 col-sm-4 col-6" *ngFor="let item of chartSkills">
+      <mat-card class="bg-transparent border border-white my-3 p-0">
+        <mat-card-content>
+          <div class="chart">
+            <apx-chart
+              [series]="item.series"
+              [chart]="item.chart"
+              [plotOptions]="item.plotOptions"
+              [labels]="item.labels"
+              [fill]="item.fill"
+              [stroke]="item.stroke"
+              [subtitle]="item.subtitle">
+            </apx-chart>
+          </div>
+        </mat-card-content>
+      </mat-card>
     </div>
   </div>
 </div>

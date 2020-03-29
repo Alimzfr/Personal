@@ -4,14 +4,16 @@ using Alimzfr.DataLayer.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Alimzfr.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200327100745_currectionRelation")]
+    partial class currectionRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,7 +42,7 @@ namespace Alimzfr.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tbl_About");
+                    b.ToTable("Abouts");
                 });
 
             modelBuilder.Entity("Alimzfr.DomainLayer.Entities.ApplicationUser", b =>
@@ -150,7 +152,7 @@ namespace Alimzfr.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tbl_CollegeEducation");
+                    b.ToTable("CollegeEducations");
                 });
 
             modelBuilder.Entity("Alimzfr.DomainLayer.Entities.Education", b =>
@@ -195,7 +197,7 @@ namespace Alimzfr.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tbl_Education");
+                    b.ToTable("Educations");
                 });
 
             modelBuilder.Entity("Alimzfr.DomainLayer.Entities.Experience", b =>
@@ -240,7 +242,7 @@ namespace Alimzfr.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tbl_Experience");
+                    b.ToTable("Experiences");
                 });
 
             modelBuilder.Entity("Alimzfr.DomainLayer.Entities.MenuItem", b =>
@@ -273,7 +275,7 @@ namespace Alimzfr.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tbl_MenuItem");
+                    b.ToTable("MenuItems");
                 });
 
             modelBuilder.Entity("Alimzfr.DomainLayer.Entities.Skill", b =>
@@ -311,7 +313,7 @@ namespace Alimzfr.Data.Migrations
 
                     b.HasIndex("SkillCategoryId");
 
-                    b.ToTable("Tbl_Skill");
+                    b.ToTable("Skills");
                 });
 
             modelBuilder.Entity("Alimzfr.DomainLayer.Entities.SkillCategory", b =>
@@ -338,7 +340,7 @@ namespace Alimzfr.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tbl_SkillCategory");
+                    b.ToTable("SkillCategories");
                 });
 
             modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.DeviceFlowCodes", b =>

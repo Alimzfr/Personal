@@ -24,42 +24,42 @@ namespace Alimzfr.ServiceLayer.Services
 
         public async Task<IEnumerable<MenuItemDto>> GetMenuItems()
         {
-            var menuItems = await _context.MenuItems.OrderBy(x=>x.SequenceNumber).ToListAsync();
+            var menuItems = await _context.MenuItems.OrderBy(x=>x.SequenceNumber).AsNoTracking().ToListAsync();
             var data = _mapper.Map<List<MenuItem>, List<MenuItemDto>>(menuItems);
             return data;
         }
 
         public async Task<IEnumerable<AboutDto>> GetAbouts()
         {
-            var abouts = await _context.Abouts.ToListAsync();
+            var abouts = await _context.Abouts.AsNoTracking().ToListAsync();
             var data = _mapper.Map<List<About>,List<AboutDto>>(abouts);
             return data;
         }
 
         public async Task<IEnumerable<SkillDto>> GetSkills()
         {
-            var skills = await _context.Skills.ToListAsync();
+            var skills = await _context.Skills.Include(x=>x.Category).AsNoTracking().ToListAsync();
             var data = _mapper.Map<List<Skill>, List<SkillDto>>(skills);
             return data;
         }
 
         public async Task<IEnumerable<EducationDto>> GetEducations()
         {
-            var educations = await _context.Educations.ToListAsync();
+            var educations = await _context.Educations.AsNoTracking().ToListAsync();
             var data = _mapper.Map<List<Education>, List<EducationDto>>(educations);
             return data;
         }
 
         public async Task<IEnumerable<CollegeEducationDto>> GetCollegeEducations()
         {
-            var collegeEducations = await _context.CollegeEducations.ToListAsync();
+            var collegeEducations = await _context.CollegeEducations.AsNoTracking().ToListAsync();
             var data = _mapper.Map<List<CollegeEducation>, List<CollegeEducationDto>>(collegeEducations);
             return data;
         }
 
         public async Task<IEnumerable<ExperienceDto>> GetExperiences()
         {
-            var experiences = await _context.Experiences.ToListAsync();
+            var experiences = await _context.Experiences.AsNoTracking().ToListAsync();
             var data = _mapper.Map<List<Experience>, List<ExperienceDto>>(experiences);
             return data;
         }

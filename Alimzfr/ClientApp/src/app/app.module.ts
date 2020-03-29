@@ -26,6 +26,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import {ContentComponent} from './shareComponents/template/template.components/main/main.components/content/content.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {NgApexchartsModule} from 'ng-apexcharts';
+import { LoadingComponent } from './shareComponents/loading/loading.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @NgModule({
@@ -46,6 +49,7 @@ import {NgApexchartsModule} from 'ng-apexcharts';
     MenuComponent,
     FooterComponent,
     ContentComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,9 @@ import {NgApexchartsModule} from 'ng-apexcharts';
     MatIconModule,
     FontAwesomeModule,
     MatMenuModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatCardModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

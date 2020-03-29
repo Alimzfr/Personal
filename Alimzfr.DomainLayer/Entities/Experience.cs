@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Alimzfr.DomainLayer.Entities
 {
+    [Table("Tbl_Experience")]
     public class Experience
     {
         public int Id { get; set; }

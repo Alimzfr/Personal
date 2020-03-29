@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Alimzfr.DomainLayer.Entities
 {
+    [Table("Tbl_Skill")]
     public class Skill
     {
         public int Id { get; set; }
@@ -14,5 +16,8 @@ namespace Alimzfr.DomainLayer.Entities
         public string PersianDescription { get; set; }
         public string EnglishDescription { get; set; }
         public int Level { get; set; }
+
+        public int? SkillCategoryId { get; set; }
+        public SkillCategory Category { get; set; }
     }
 }

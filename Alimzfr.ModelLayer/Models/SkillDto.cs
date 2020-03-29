@@ -14,5 +14,9 @@ namespace Alimzfr.ModelLayer.Models
         public string PersianDescription { get; set; }
         public string EnglishDescription { get; set; }
         public int Level { get; set; }
+        public int? SkillCategoryId { get; set; }
+        public string PersianCategoryName { get; set; }
+        public string EnglishCategoryName { get; set; }
+        public string CategoryColor { get; set; }
     }
 }
