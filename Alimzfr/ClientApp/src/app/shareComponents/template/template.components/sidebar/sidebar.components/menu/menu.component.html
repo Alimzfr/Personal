@@ -3,6 +3,7 @@
           *ngFor="let item of menuItems"
           [routerLink]="item.routLink"
           [routerLinkActive]="'alimzfr-active-link'"
+          (click)="clickMenuHandler()"
           class="w-100">
     {{item.englishTitle}}
   </button>

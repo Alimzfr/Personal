@@ -1,0 +1,114 @@
+@keyframes ldio-ccfhuiok2q {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+.ldio-ccfhuiok2q > div > div {
+  transform-origin: 25px 25px;
+  animation: ldio-ccfhuiok2q 2.857142857142857s linear infinite;
+  opacity: 0.8; }
+
+.ldio-ccfhuiok2q > div > div > div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 100px 0 0 0;
+  transform-origin: 100px 100px; }
+
+.ldio-ccfhuiok2q > div div:nth-child(1) {
+  animation-duration: 0.7142857143s; }
+
+.ldio-ccfhuiok2q > div div:nth-child(1) > div {
+  background: #343a40;
+  transform: rotate(0deg); }
+
+.ldio-ccfhuiok2q > div div:nth-child(2) {
+  animation-duration: 0.9523809524s; }
+
+.ldio-ccfhuiok2q > div div:nth-child(2) > div {
+  background: #6c757d;
+  transform: rotate(0deg); }
+
+.ldio-ccfhuiok2q > div div:nth-child(3) {
+  animation-duration: 1.4285714286s; }
+
+.ldio-ccfhuiok2q > div div:nth-child(3) > div {
+  background: #cccccc;
+  transform: rotate(0deg); }
+
+.ldio-ccfhuiok2q > div div:nth-child(4) {
+  animation-duration: 2.8571428571s; }
+
+.ldio-ccfhuiok2q > div div:nth-child(4) > div {
+  background: #e5305f;
+  transform: rotate(0deg); }
+
+.alimzfr-loading-spinner {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  overflow: hidden;
+  background: transparent;
+  position: absolute;
+  left: 50%;
+  z-index: 9999999999 !important;
+  transform: translate(-50%, 0);
+  transition-duration: 0.8s; }
+
+.ldio-ccfhuiok2q {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+  /* see note above */ }
+
+.ldio-ccfhuiok2q div {
+  box-sizing: content-box; }
+
+/*-----------full overlay style--------------*/
+.alimzfr-full-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.3;
+  text-align: center;
+  vertical-align: middle;
+  z-index: 9999999;
+  transition-duration: 0.8s; }
+
+.alimzfr-loading-spinner-full-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition-duration: 0.8s;
+  z-index: 99999999; }
+
+/*------------container overlay---------------*/
+.alimzfr-container-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.3;
+  z-index: 9999999;
+  left: 0;
+  top: 0;
+  transition-duration: 0.8s; }
+
+.alimzfr-loading-spinner-container-overlay {
+  transition-duration: 0.8s;
+  z-index: 9999999999 !important;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+/*# sourceMappingURL=loading.component.css.map */

@@ -10,7 +10,7 @@ import {
   ApexTooltip
 } from 'ng-apexcharts';
 
-export interface EducationModel {
+export interface TrainingCourseModel {
   id: number;
   creatDate: string;
   modifyDate: string;

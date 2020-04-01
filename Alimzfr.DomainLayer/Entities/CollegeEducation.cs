@@ -19,6 +19,7 @@ namespace Alimzfr.DomainLayer.Entities
         public string EnglishUniversity { get; set; }
         public string PersianDescription { get; set; }
         public string EnglishDescription { get; set; }
+        [Column(TypeName = "date")]
         public DateTime GraduationDate { get; set; }
     }
 }

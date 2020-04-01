@@ -1,5 +1,5 @@
 import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
-import {EducationModel, CollegeEducationModel, ChartOptions} from './education.model/education.model';
+import {TrainingCourseModel, CollegeEducationModel, ChartOptions} from './education.model/education.model';
 import {EducationService} from './education.services/education.service';
 import {ChartComponent} from 'ng-apexcharts';
 import {toArray} from 'rxjs/operators';
@@ -12,7 +12,7 @@ import {toArray} from 'rxjs/operators';
 export class EducationComponent implements OnInit {
   @ViewChild('chart') chart: ChartComponent;
   public chartOptions: ChartOptions;
-  educations: EducationModel[];
+  educations: TrainingCourseModel[];
   collegeEducations: CollegeEducationModel[];
   loading: boolean;
 
@@ -38,7 +38,7 @@ export class EducationComponent implements OnInit {
     });
   }
 
-  fillCartEducations(educations: EducationModel[]) {
+  fillCartEducations(educations: TrainingCourseModel[]) {
     this.chartOptions = {
       series: [
         {

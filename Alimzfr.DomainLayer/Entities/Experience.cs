@@ -17,8 +17,11 @@ namespace Alimzfr.DomainLayer.Entities
         public string EnglishCompanyName { get; set; }
         public string PersianDescription { get; set; }
         public string EnglishDescription { get; set; }
+        [Column(TypeName = "date")]
         public DateTime FromDate { get; set; }
-        public DateTime ToDate { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime? ToDate { get; set; }
         public bool IsCurrentJob { get; set; }
+        public int SequenceNumber { get; set; }
     }
 }

@@ -12,6 +12,6 @@ export class SkillsService {
   }
 
   getSkills(): Observable<SkillModel[]> {
-    return this.http.get<SkillModel[]>('api/Content/GetSkills');
+    return this.http.get<SkillModel[]>('api/Skill/GetSkills');
   }
 }

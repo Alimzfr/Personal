@@ -1,1 +1,97 @@
-<p>contact works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 col-12 my-3">
+      <mat-card class="bg-transparent border border-white rounded-sm">
+        <img mat-card-image src="../../../assets/myImage2.jpg" alt="Ali Mozaffari">
+        <mat-card-content>
+          <mat-card-actions>
+            <div class="d-flex justify-content-around">
+              <button mat-icon-button
+                      matTooltip="Linkedin"
+                      style="line-height: inherit"
+                      (click)="communicateNavigate('linkedin','https://linkedin.com/in/ali-mozaffari-741211153')"
+                      aria-label="Example icon-button with a heart icon">
+                <fa-icon [icon]="['fab','linkedin-in']"
+                         [classes]="['text-primary','text-center','d-inline-block']"
+                         [size]="'2x'">
+                </fa-icon>
+              </button>
+              <button mat-icon-button
+                      matTooltip="Github"
+                      style="line-height: inherit"
+                      (click)="communicateNavigate('github','https://github.com/Alimzfr')"
+                      aria-label="Example icon-button with a heart icon">
+                <fa-icon [icon]="['fab','github']"
+                         [classes]="['text-primary','text-center','d-inline-block']"
+                         [size]="'2x'">
+                </fa-icon>
+              </button>
+              <button mat-icon-button
+                      matTooltip="Email"
+                      style="line-height: inherit"
+                      (click)="communicateNavigate('email','alimozaffari13701370@gmail.com')"
+                      aria-label="Example icon-button with a heart icon">
+                <fa-icon [icon]="['far','envelope']"
+                         [classes]="['text-primary','text-center','d-inline-block']"
+                         [size]="'2x'">
+                </fa-icon>
+              </button>
+              <button mat-icon-button
+                      matTooltip="Whatsapp"
+                      style="line-height: inherit"
+                      (click)="communicateNavigate('whatsapp','+989199355630')"
+                      aria-label="Example icon-button with a heart icon">
+                <fa-icon [icon]="['fab','whatsapp']"
+                         [classes]="['text-primary','text-center','d-inline-block']"
+                         [size]="'2x'">
+                </fa-icon>
+              </button>
+            </div>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-sm-6 col-12 my-3">
+      <mat-card class="bg-transparent border border-white rounded-sm">
+        <mat-card-content>
+          <div class="mb-3">
+            <p>Thank you for your interest in my website!</p>
+            <p>If you have a general question or comment, please either fill out the contact form below.</p>
+            <p>We look forward to hearing from you.</p>
+          </div>
+          <form [formGroup]="contactForm" (ngSubmit)="onContactFormSubmit()">
+            <mat-form-field class="w-100">
+              <mat-label>Name</mat-label>
+              <input matInput
+                     formControlName="name"
+                     required>
+            </mat-form-field>
+
+            <mat-form-field class="w-100">
+              <mat-label>Email</mat-label>
+              <input matInput
+                     formControlName="email"
+                     required
+                     email>
+            </mat-form-field>
+
+            <mat-form-field class="w-100">
+              <mat-label>Leave a comment</mat-label>
+              <textarea matInput
+                        formControlName="comment"
+                        required>
+              </textarea>
+            </mat-form-field>
+
+            <button mat-stroked-button
+                    color="primary"
+                    type="submit"
+                    [disabled]="contactForm.invalid">
+              <span>Submit</span>
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -55,8 +55,13 @@ namespace Alimzfr
             services.AddSingleton(mapper);
 
             // Services
-            services.AddScoped<IContentServices, ContentServices>();
             services.AddScoped<IUserServices, UserServices>();
+            services.AddScoped<IAboutService, AboutService>();
+            services.AddScoped<IContactService, ContactService>();
+            services.AddScoped<IEducationService, EducationService>();
+            services.AddScoped<IExperienceService, ExperienceService>();
+            services.AddScoped<IMenuService, MenuService>();
+            services.AddScoped<ISkillService, SkillService>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

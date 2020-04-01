@@ -131,7 +131,7 @@ namespace Alimzfr.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("GraduationDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("date");
 
                     b.Property<DateTime?>("ModifiyDate")
                         .HasColumnType("datetime2");
@@ -151,51 +151,6 @@ namespace Alimzfr.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tbl_CollegeEducation");
-                });
-
-            modelBuilder.Entity("Alimzfr.DomainLayer.Entities.Education", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Duration")
-                        .HasColumnType("int");
-
-                    b.Property<string>("EnglishCourseName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EnglishDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EnglishEducationalInstitute")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("FromDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("ModifyDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("PersianCourseName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PersianDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PersianEducationalInstitute")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ToDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tbl_Education");
                 });
 
             modelBuilder.Entity("Alimzfr.DomainLayer.Entities.Experience", b =>
@@ -218,7 +173,7 @@ namespace Alimzfr.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("FromDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("date");
 
                     b.Property<bool>("IsCurrentJob")
                         .HasColumnType("bit");
@@ -235,8 +190,11 @@ namespace Alimzfr.Data.Migrations
                     b.Property<string>("PersianJobTitle")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ToDate")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("SequenceNumber")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ToDate")
+                        .HasColumnType("date");
 
                     b.HasKey("Id");
 
@@ -339,6 +297,81 @@ namespace Alimzfr.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tbl_SkillCategory");
+                });
+
+            modelBuilder.Entity("Alimzfr.DomainLayer.Entities.TrainingCourse", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
+
+                    b.Property<string>("EnglishCourseName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EnglishDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EnglishEducationalInstitute")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FromDate")
+                        .HasColumnType("date");
+
+                    b.Property<DateTime?>("ModifyDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PersianCourseName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PersianDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PersianEducationalInstitute")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ToDate")
+                        .HasColumnType("date");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tbl_TrainingCourse");
+                });
+
+            modelBuilder.Entity("Alimzfr.DomainLayer.Entities.UserComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserAgentInfo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tbl_UserComment");
                 });
 
             modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.DeviceFlowCodes", b =>

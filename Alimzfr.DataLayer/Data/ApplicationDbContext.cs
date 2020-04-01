@@ -21,8 +21,9 @@ namespace Alimzfr.DataLayer.Data
         public DbSet<About> Abouts { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<SkillCategory> SkillCategories { get; set; }
-        public DbSet<Education> Educations { get; set; }
+        public DbSet<TrainingCourse> TrainingCourses { get; set; }
         public DbSet<CollegeEducation> CollegeEducations { get; set; }
         public DbSet<Experience> Experiences { get; set; }
+        public DbSet<UserComment> userComments { get; set; }
     }
 }

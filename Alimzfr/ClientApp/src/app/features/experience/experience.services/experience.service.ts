@@ -12,6 +12,6 @@ export class ExperienceService {
   }
 
   getExperiences(): Observable<ExperienceModel[]> {
-    return this.http.get<ExperienceModel[]>('api/Content/GetExperiences');
+    return this.http.get<ExperienceModel[]>('api/Experience/GetExperiences');
   }
 }

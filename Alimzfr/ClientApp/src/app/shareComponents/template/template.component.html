@@ -1,6 +1,7 @@
-<app-sidebar class="flex-shrink-0 h-auto alimzfr-sidebar"
-             [class.alimzfr-sidebar-toggle]="!sidebarIsOpen">
+<app-sidebar class="flex-shrink-0 alimzfr-sidebar"
+             [class.alimzfr-sidebar-toggle]="!sidebarIsOpen"
+             (sidebarToggle)="sidebarToggleHandler()">
 </app-sidebar>
-<app-main class="flex-grow-1 h-auto alimzfr-content"
+<app-main class="flex-grow-1 alimzfr-content"
           (sidebarToggle)="sidebarToggleHandler()">
 </app-main>

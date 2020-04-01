@@ -1,8 +1,4 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
-import {fas} from '@fortawesome/free-solid-svg-icons';
-import {far} from '@fortawesome/free-regular-svg-icons';
-import {fab} from '@fortawesome/free-brands-svg-icons';
-import {FaIconLibrary} from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-header',
@@ -12,8 +8,7 @@ import {FaIconLibrary} from '@fortawesome/angular-fontawesome';
 export class HeaderComponent implements OnInit {
   @Output() sidebarToggle = new EventEmitter();
 
-  constructor(library: FaIconLibrary) {
-    library.addIconPacks(fas, far, fab);
+  constructor() {
   }
 
   ngOnInit(): void {
@@ -21,10 +16,6 @@ export class HeaderComponent implements OnInit {
 
   sidebarToggleHandler() {
     this.sidebarToggle.emit();
-    const windowResizeTrigger = setInterval(() => window.dispatchEvent(new Event('resize')), 10);
-    setTimeout(() => clearInterval(windowResizeTrigger), 600);
-
   }
-
 
 }

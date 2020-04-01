@@ -16,8 +16,8 @@ namespace Alimzfr.ServiceLayer.Profiles
             CreateMap<About, AboutDto>();
 
             CreateMap<Skill, SkillDto>()
-                .ForMember(dest=>dest.PersianCategoryName,
-                opt=>opt.MapFrom(src=>src.Category.PersianCategoryName))
+                .ForMember(dest => dest.PersianCategoryName,
+                opt => opt.MapFrom(src => src.Category.PersianCategoryName))
                 .ForMember(dest => dest.EnglishCategoryName,
                 opt => opt.MapFrom(src => src.Category.EnglishCategoryName))
                 .ForMember(dest => dest.CategoryColor,
@@ -26,18 +26,23 @@ namespace Alimzfr.ServiceLayer.Profiles
             CreateMap<Experience, ExperienceDto>()
                 .ForMember(dest => dest.GregorianFromDate,
                 opt => opt.MapFrom(src => src.FromDate))
-                .ForMember(dest=>dest.GregorianToDate,
-                opt=>opt.MapFrom(src=>src.ToDate));
+                .ForMember(dest => dest.GregorianToDate,
+                opt => opt.MapFrom(src => src.ToDate));
 
-            CreateMap<Education, EducationDto>()
-                .ForMember(dest=>dest.GregorianFromDate,
-                opt=>opt.MapFrom(src=>src.FromDate))
-                .ForMember(dest=>dest.GregorianToDate,
-                opt=>opt.MapFrom(src=>src.ToDate));
+            CreateMap<TrainingCourse, TrainingCourseDto>()
+                .ForMember(dest => dest.GregorianFromDate,
+                opt => opt.MapFrom(src => src.FromDate))
+                .ForMember(dest => dest.GregorianToDate,
+                opt => opt.MapFrom(src => src.ToDate));
 
             CreateMap<CollegeEducation, CollegeEducationDto>()
-                .ForMember(dest=>dest.GregorianGraduationDate,
-                opt=>opt.MapFrom(src=>src.GraduationDate));
+                .ForMember(dest => dest.GregorianGraduationDate,
+                opt => opt.MapFrom(src => src.GraduationDate));
+
+            CreateMap<UserComment, UserCommentDto>()
+                .ReverseMap()
+                .ForPath(src => src.CreatDate,
+                opt => opt.MapFrom(src => DateTime.Now));
 
         }
     }

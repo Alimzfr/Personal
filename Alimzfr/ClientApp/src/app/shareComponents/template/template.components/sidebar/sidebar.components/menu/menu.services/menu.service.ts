@@ -12,6 +12,6 @@ export class MenuService {
   }
 
   getMenuItems(): Observable<MenuItemsModel[]> {
-    return this.http.get<MenuItemsModel[]>('api/Content/GetMenuItems');
+    return this.http.get<MenuItemsModel[]>('api/Menu/GetMenuItems');
   }
 }

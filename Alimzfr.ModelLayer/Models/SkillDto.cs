@@ -8,7 +8,7 @@ namespace Alimzfr.ModelLayer.Models
     {
         public int Id { get; set; }
         public DateTime CreateDate { get; set; }
-        public DateTime ModifyDate { get; set; }
+        public DateTime? ModifyDate { get; set; }
         public string PersianSkillName { get; set; }
         public string EnglishSkillName { get; set; }
         public string PersianDescription { get; set; }

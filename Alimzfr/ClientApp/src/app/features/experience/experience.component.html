@@ -1,1 +1,39 @@
-<p>experience works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 px-0">
+      <mat-vertical-stepper class="bg-transparent">
+        <mat-step *ngFor="let item of experiences"
+                  [label]="item.englishJobTitle"
+                  state="edit">
+          <mat-card class="bg-transparent border border-white rounded-sm p-2 p-sm-3">
+            <mat-card-header>
+              <mat-card-title class="mb-2 mb-sm-3 alimzfr-card-title">
+                <fa-icon [icon]="['far','building']"
+                         [classes]="['text-primary','text-center','d-inline-block']"
+                         [styles]="{'width':'25px'}">
+                </fa-icon>
+                <span class="mx-2">{{item.englishCompanyName}}</span>
+                <small class="text-white d-block d-sm-inline">
+                  <span>{{item.gregorianFromDate | mask: '9999/99'}}</span>
+                  <span class="mx-1">-</span>
+                  <span>{{item.gregorianToDate | mask: '9999/99'}}</span>
+                  <span *ngIf="item.gregorianToDate == null">Present</span>
+                </small>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <mat-card-content class="p-3">
+              <p>{{item.englishDescription}}</p>
+            </mat-card-content>
+          </mat-card>
+        </mat-step>
+        <ng-template matStepperIcon="edit">
+          <fa-icon [icon]="['fas','briefcase']"
+                   [size]="'sm'"
+                   [classes]="['text-white','text-center']">
+          </fa-icon>
+        </ng-template>
+      </mat-vertical-stepper>
+    </div>
+  </div>
+</div>

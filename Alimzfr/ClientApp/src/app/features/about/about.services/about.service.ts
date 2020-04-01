@@ -12,6 +12,6 @@ export class AboutService {
   }
 
   getAbouts(): Observable<AboutModel[]> {
-    return this.http.get<AboutModel[]>('api/Content/GetAbouts');
+    return this.http.get<AboutModel[]>('api/About/GetAbouts');
   }
 }

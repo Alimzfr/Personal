@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MenuItemsModel} from './menu.models/menu-Item.model';
 import {MenuService} from './menu.services/menu.service';
 
@@ -9,6 +9,8 @@ import {MenuService} from './menu.services/menu.service';
 })
 export class MenuComponent implements OnInit {
   menuItems: MenuItemsModel[];
+
+  @Output() sidebarToggle = new EventEmitter();
 
   constructor(private service: MenuService) {
   }
@@ -21,5 +23,11 @@ export class MenuComponent implements OnInit {
     this.service.getMenuItems().subscribe(value => {
       this.menuItems = value;
     });
+  }
+
+  clickMenuHandler() {
+    if (window.innerWidth < 768) {
+      this.sidebarToggle.emit();
+    }
   }
 }
