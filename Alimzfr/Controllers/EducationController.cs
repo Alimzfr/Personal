@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Alimzfr.ModelLayer.Models;
 using Alimzfr.ServiceLayer.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

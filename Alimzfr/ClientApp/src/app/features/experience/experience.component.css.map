@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,oCAAqC;EACnC,mBAAoB;IAClB,SAAS,EAAE,OAAO",
-"sources": ["experience.component.scss"],
+"mappings": "AAGA;sBACuB;EACrB,KAAK,ECHU,OAAO;;ADMxB;qBACsB;EACpB,KAAK,ECTU,OAAO;;ADYxB,oCAAqC;EACnC,mBAAoB;IAClB,SAAS,EAAE,OAAO",
+"sources": ["experience.component.scss","../../shareStyles/variables.scss"],
 "names": [],
 "file": "experience.component.css"
 }

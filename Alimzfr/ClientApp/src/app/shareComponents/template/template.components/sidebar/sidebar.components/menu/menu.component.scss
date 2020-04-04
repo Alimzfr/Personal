@@ -1,9 +1,9 @@
-$activeLinkColor: blue;
+@import "../../../../../../shareStyles/variables";
 
 .alimzfr-menu {
   margin-bottom: 90px;
 }
 
-.alimzfr-active-link {
-  color: $activeLinkColor;
+.alimzfr-menu-link {
+  color: $alimzfr-color1;
 }

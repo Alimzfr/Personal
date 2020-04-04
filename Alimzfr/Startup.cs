@@ -16,6 +16,7 @@ using AutoMapper;
 using Alimzfr.ServiceLayer.Profiles;
 using Alimzfr.ServiceLayer.Services;
 using Alimzfr.ServiceLayer.Interfaces;
+using Alimzfr.ServiceLayer.Authentication;
 
 namespace Alimzfr
 {
@@ -35,16 +36,17 @@ namespace Alimzfr
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-
-            services.AddIdentityServer()
-                .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
-
-            services.AddAuthentication()
-                .AddIdentityServerJwt();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddDefaultIdentity<ApplicationUser>().AddEntityFrameworkStores<ApplicationDbContext>();
+
+
+            // Authentication
+            services.AddTokenAuthentication(Configuration);
+            services.AddSingleton<JwtService>();
+
+
+
 
             // Auto Mapper Configurations
             var mappingConfig = new MapperConfiguration(mc =>
@@ -95,8 +97,8 @@ namespace Alimzfr
             app.UseRouting();
 
             app.UseAuthentication();
-            app.UseIdentityServer();
             app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

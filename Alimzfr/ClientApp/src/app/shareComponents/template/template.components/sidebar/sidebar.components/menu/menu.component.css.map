@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAEA,aAAc;EACZ,aAAa,EAAE,IAAI;;AAGrB,oBAAqB;EACnB,KAAK,EAPW,IAAI",
-"sources": ["menu.component.scss"],
+"mappings": "AAEA,aAAc;EACZ,aAAa,EAAE,IAAI;;AAGrB,kBAAmB;EACjB,KAAK,ECNU,OAAO",
+"sources": ["menu.component.scss","../../../../../../shareStyles/variables.scss"],
 "names": [],
 "file": "menu.component.css"
 }

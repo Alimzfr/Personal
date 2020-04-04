@@ -1,6 +1,22 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:600);
+@import "../../../../../../shareStyles/variables";
+
 $pictureHeight: 150px;
 
 .alimzfr-picture {
   width: auto;
   height: $pictureHeight;
+}
+
+.alimzfr-title {
+  h1 {
+    color: $alimzfr-color1;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+  }
+  h3{
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+color: $alimzfr-color3;
+  }
 }

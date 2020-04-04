@@ -1,6 +1,7 @@
 .alimzfr-footer {
   position: fixed;
   bottom: 0;
-  width: inherit; }
+  width: inherit;
+  z-index: 99999999; }
 
 /*# sourceMappingURL=sidebar.component.css.map */

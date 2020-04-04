@@ -1,3 +1,16 @@
+@import "../../shareStyles/variables";
+
+
+.alimzfr-card-label,
+.alimzfr-card-duration {
+  color: $alimzfr-color2;
+}
+
+.alimzfr-card-title,
+.alimzfr-card-content {
+  color: $alimzfr-color1;
+}
+
 @media screen and (max-width: 768px) {
   .alimzfr-card-title {
     font-size: inherit;

@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAEA,sBAAuB;EACrB,KAAK,ECFU,OAAO;;ADMtB,6BAAU;EACR,KAAK,ECNQ,OAAO;ADStB,yBAAM;EACJ,KAAK,ECXQ,OAAO;;ADexB,oBAAqB;EACnB,KAAK,ECfU,OAAO;;ADkBxB,qBAAsB;EACpB,QAAQ,EAAE,QAAQ;EAClB,OAAO,EAAE,KAAK;EACd,GAAG,EAAE,CAAC;EACN,IAAI,EAAE,CAAC;EACP,OAAO,EAAE,CAAC",
+"sources": ["contact.component.scss","../../shareStyles/variables.scss"],
 "names": [],
 "file": "contact.component.css"
 }

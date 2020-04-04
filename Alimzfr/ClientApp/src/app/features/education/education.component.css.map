@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAEA;;mBAEoB;EAClB,KAAK,ECHU,OAAO;;ADMxB,qBAAsB;EACtB,KAAK,ECRY,OAAO",
+"sources": ["education.component.scss","../../shareStyles/variables.scss"],
 "names": [],
 "file": "education.component.css"
 }

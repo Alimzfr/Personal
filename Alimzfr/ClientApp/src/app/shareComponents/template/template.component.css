@@ -9,8 +9,8 @@
 
 @media screen and (max-width: 768px) {
   .alimzfr-sidebar {
-    position: fixed;
-    top: 50px;
+    position: fixed !important;
+    top: 50px !important;
     z-index: 10;
     height: 100% !important; } }
 @media screen and (max-height: 600px) {

@@ -9,11 +9,13 @@ import {ExperienceService} from './experience.services/experience.service';
 })
 export class ExperienceComponent implements OnInit {
   experiences: ExperienceModel[];
+  loading: boolean;
 
   constructor(private service: ExperienceService) {
   }
 
   ngOnInit(): void {
+    this.loading = true;
     this.getExperiences();
   }
 
@@ -21,6 +23,10 @@ export class ExperienceComponent implements OnInit {
   getExperiences() {
     this.service.getExperiences().subscribe(value => {
       this.experiences = value;
+      this.loading = false;
+    }, error => {
+      console.log(error);
+      this.loading = false;
     });
   }
 

@@ -1,3 +1,10 @@
-
+@import url(https://fonts.googleapis.com/css?family=Raleway:600);
+.alimzfr-coming-soon {
+  color: #cccccc;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  height: 80vh;
+  line-height: 80vh;
+  user-select: none; }
 
 /*# sourceMappingURL=blog.component.css.map */

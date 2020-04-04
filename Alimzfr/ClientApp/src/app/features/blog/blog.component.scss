@@ -1,0 +1,10 @@
+@import "../../shareStyles/variables";
+@import url(https://fonts.googleapis.com/css?family=Raleway:600);
+.alimzfr-coming-soon {
+  color: $alimzfr-color1;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  height: 80vh;
+  line-height: 80vh;
+  user-select: none;
+}

@@ -2,32 +2,40 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
+using Alimzfr.DataLayer.Data;
+using Alimzfr.ModelLayer.Models;
+using Alimzfr.ServiceLayer.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace Alimzfr.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly ILogger<UserController> _logger;
-
-        public UserController(IClientRequestParametersProvider clientRequestParametersProvider, ILogger<UserController> logger)
+        private readonly JwtService _jwtService;
+        private readonly ApplicationDbContext _context;
+        public UserController(JwtService jwtService, ApplicationDbContext context)
         {
-            ClientRequestParametersProvider = clientRequestParametersProvider;
-            _logger = logger;
+            _jwtService = jwtService;
+            _context = context;
         }
 
-        public IClientRequestParametersProvider ClientRequestParametersProvider { get; }
-
-        [HttpGet("_configuration/{clientId}")]
-        public IActionResult GetClientRequestParameters([FromRoute]string clientId)
+        [HttpPost]
+        public TokenDto Login([FromBody]LoginDto login)
         {
-            var parameters = ClientRequestParametersProvider.GetClientParameters(HttpContext, clientId);
-            return Ok(parameters);
+            var userId = HttpContext.User;
+            //var test = _jwtService.GenerateSecurityToken(login.Email);
+            return new TokenDto { Access_token = "Hello World"};
         }
+
+        [HttpGet]
+        public void Logout()
+        {
+            //var test = _jwtService.GenerateSecurityToken(login.Email);
+        }
+
     }
 }

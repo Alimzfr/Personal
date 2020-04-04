@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alimzfr", "Alimzfr.csproj", "{8D5CF329-9319-4649-A6E4-DC355079A397}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alimzfr.ServiceLayer", "..\Alimzfr.ServiceLayer\Alimzfr.ServiceLayer.csproj", "{706A52C1-022F-47E4-88FF-96E86DC9C340}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alimzfr.ServiceLayer", "..\Alimzfr.ServiceLayer\Alimzfr.ServiceLayer.csproj", "{706A52C1-022F-47E4-88FF-96E86DC9C340}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alimzfr.DataLayer", "..\Alimzfr.DataLayer\Alimzfr.DataLayer.csproj", "{6CD569E6-3530-4A4B-9923-6F758DE2226A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alimzfr.DataLayer", "..\Alimzfr.DataLayer\Alimzfr.DataLayer.csproj", "{6CD569E6-3530-4A4B-9923-6F758DE2226A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alimzfr.DomainLayer", "..\Alimzfr.DomainLayer\Alimzfr.DomainLayer.csproj", "{D76B1E1A-4927-40A4-A641-DCC3F261DF9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alimzfr.DomainLayer", "..\Alimzfr.DomainLayer\Alimzfr.DomainLayer.csproj", "{D76B1E1A-4927-40A4-A641-DCC3F261DF9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alimzfr.ModelLayer", "..\Alimzfr.ModelLayer\Alimzfr.ModelLayer.csproj", "{6E6840C7-25F6-4677-8B19-F7DA248A8D12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alimzfr.ModelLayer", "..\Alimzfr.ModelLayer\Alimzfr.ModelLayer.csproj", "{6E6840C7-25F6-4677-8B19-F7DA248A8D12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

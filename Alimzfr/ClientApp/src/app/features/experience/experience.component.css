@@ -1,3 +1,11 @@
+.alimzfr-card-label,
+.alimzfr-card-duration {
+  color: #6c757d; }
+
+.alimzfr-card-title,
+.alimzfr-card-content {
+  color: #cccccc; }
+
 @media screen and (max-width: 768px) {
   .alimzfr-card-title {
     font-size: inherit; } }

@@ -1,1 +1,13 @@
-<p>about works!</p>
+<app-loading *ngIf="!abouts"></app-loading>
+<div class="jumbotron jumbotron-fluid bg-transparent text-secondary m-0" *ngIf="!!abouts">
+  <div class="container text-center">
+    <h1>Let me introduce myself.</h1>
+  </div>
+</div>
+<div class="container" *ngIf="!!abouts">
+  <div class="row">
+    <div class="col-sm-10 offset-sm-1 text-justify alimzfr-about-content"
+    *ngFor="let item of abouts" [innerHTML]="item.englishDescription">
+    </div>
+  </div>
+</div>

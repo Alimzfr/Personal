@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-12 d-flex flex-row align-items-center alimzfr-toolbar-content">
       <button mat-icon-button
-              aria-label="Example icon-button with a heart icon"
+              aria-label="sidebar menu button"
               (click)="sidebarToggleHandler()">
-        <fa-icon [icon]="['fas','bars']" [size]="'lg'" [classes]="['text-white']"></fa-icon>
+        <fa-icon [icon]="['fas','bars']" [size]="'lg'" [classes]="['alimzfr-header-btn']"></fa-icon>
       </button>
 
       <img src="../../../../../../../assets/myLogo.png"
@@ -14,15 +14,17 @@
 
       <button mat-icon-button
               class="mr-0 ml-auto"
-              aria-label="Example icon-button with a heart icon">
-        <fa-icon [icon]="['fas','sign-in-alt']" [size]="'lg'" [classes]="['text-white']"></fa-icon>
+              (click)="loginHandler()"
+              aria-label="login button"
+              disabled>
+        <fa-icon [icon]="['fas','sign-in-alt']" [size]="'lg'" [classes]="['alimzfr-header-btn']"></fa-icon>
       </button>
 
       <button mat-icon-button
               [matMenuTriggerFor]="langMenu"
               class="mr-0 ml-2"
-              aria-label="Example icon-button with a heart icon">
-        <fa-icon [icon]="['fas','globe-europe']" [size]="'lg'" [classes]="['text-white']"></fa-icon>
+              aria-label="localization button">
+        <fa-icon [icon]="['fas','globe-europe']" [size]="'lg'" [classes]="['alimzfr-header-btn']"></fa-icon>
       </button>
       <mat-menu #langMenu="matMenu">
         <button mat-menu-item>

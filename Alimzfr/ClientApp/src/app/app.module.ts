@@ -33,9 +33,11 @@ import {LoadingComponent} from './shareComponents/loading/loading.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatStepperModule} from '@angular/material/stepper';
-import {DialogComponent} from './shareComponents/dialog/dialog.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {LoginComponent} from './authentication/login/login.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {JwtModule} from '@auth0/angular-jwt';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -58,7 +60,7 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     FooterComponent,
     ContentComponent,
     LoadingComponent,
-    DialogComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +79,16 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     MatStepperModule,
     MatTooltipModule,
     MatInputModule,
-    NgxMaskModule.forRoot(options)
+    MatDialogModule,
+    NgxMaskModule.forRoot(options),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('alimzfr_access_token');
+        },
+        throwNoTokenError: false,
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

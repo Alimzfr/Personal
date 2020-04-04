@@ -1,19 +1,28 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {UserCommentModel} from './contact.models/contact.model';
 import {ContactService} from './contact.services/contact.service';
+
+declare var Particles: any;
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChild('communicateElement', {read: ElementRef}) communicateElement: ElementRef;
+  @ViewChild('formElement', {read: ElementRef}) formElement: ElementRef;
+  particles: any;
   contactForm = new FormGroup({
     name: new FormControl(),
     email: new FormControl(),
+    subject: new FormControl(),
     comment: new FormControl()
   });
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.communicateElement.nativeElement.style.height = this.formElement.nativeElement.offsetHeight + 'px';
+  }
 
   constructor(private service: ContactService) {
   }
@@ -48,5 +57,28 @@ export class ContactComponent implements OnInit {
         return;
     }
 
+  }
+
+  ngAfterViewInit(): void {
+    this.communicateElement.nativeElement.style.height = this.formElement.nativeElement.offsetHeight + 'px';
+    this.initParticles();
+  }
+
+  ngOnDestroy(): void {
+    this.destroyParticles();
+  }
+
+  initParticles() {
+    this.particles = Particles.init({
+      selector: '.Particles-background',
+      maxParticles: 40,
+      color: '#6c757d',
+      speed: 0.3,
+      connectParticles: true,
+    });
+  }
+
+  destroyParticles() {
+    this.particles.destroy();
   }
 }

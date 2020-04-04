@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, HostListener, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {TrainingCourseModel, CollegeEducationModel, ChartOptions} from './education.model/education.model';
 import {EducationService} from './education.services/education.service';
 import {ChartComponent} from 'ng-apexcharts';
@@ -29,6 +29,8 @@ export class EducationComponent implements OnInit {
     this.service.getEducations().subscribe(value => {
       this.educations = value;
       this.fillCartEducations(value);
+    }, error => {
+      console.log(error);
     });
   }
 

@@ -18,6 +18,7 @@ export class TemplateComponent implements OnInit, AfterViewInit {
   sidebarIsOpen: boolean;
   windowInnerHeight: number;
   @ViewChild(SidebarComponent, {read: ElementRef}) sidebarComponent: ElementRef;
+
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.windowInnerHeight = window.innerHeight;
@@ -27,9 +28,10 @@ export class TemplateComponent implements OnInit, AfterViewInit {
   constructor(private renderer: Renderer2) {
   }
 
+
   ngOnInit(): void {
-    this.sidebarIsOpen = true;
     this.windowInnerHeight = window.innerHeight;
+    this.sidebarIsOpen = window.innerWidth >= 768;
   }
 
   ngAfterViewInit(): void {

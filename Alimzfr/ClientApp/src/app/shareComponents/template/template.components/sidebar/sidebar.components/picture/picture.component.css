@@ -1,5 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:600);
 .alimzfr-picture {
   width: auto;
   height: 150px; }
+
+.alimzfr-title h1 {
+  color: #cccccc;
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase; }
+.alimzfr-title h3 {
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
+  color: #343a40; }
 
 /*# sourceMappingURL=picture.component.css.map */

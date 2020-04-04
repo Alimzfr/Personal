@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAEA,sBAAuB;EACrB,KAAK,ECFU,OAAO",
+"sources": ["about.component.scss","../../shareStyles/variables.scss"],
 "names": [],
 "file": "about.component.css"
 }

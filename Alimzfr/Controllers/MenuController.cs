@@ -15,10 +15,8 @@ namespace Alimzfr.Controllers
     public class MenuController : ControllerBase
     {
         private readonly IMenuService _menuService;
-        private readonly ILogger<MenuController> _logger;
-        public MenuController(ILogger<MenuController> logger, IMenuService menuService)
+        public MenuController(IMenuService menuService)
         {
-            _logger = logger;
             _menuService = menuService;
         }
 

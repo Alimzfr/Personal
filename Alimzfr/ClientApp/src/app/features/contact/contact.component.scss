@@ -1,1 +1,27 @@
+@import "../../shareStyles/variables";
 
+.alimzfr-about-content {
+  color: $alimzfr-color1;
+}
+
+.alimzfr-form-field {
+  mat-label {
+    color: $alimzfr-color2;
+  }
+
+  input {
+    color: $alimzfr-color1;
+  }
+}
+
+.alimzfr-card-button {
+  color: $alimzfr-color2;
+}
+
+.Particles-background {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}

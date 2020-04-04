@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
+
 
 @Component({
   selector: 'app-content',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+
   }
 
 }

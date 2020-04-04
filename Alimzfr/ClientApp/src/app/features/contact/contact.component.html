@@ -1,73 +1,76 @@
+<!--<app-loading></app-loading>-->
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-6 col-12 my-3">
-      <mat-card class="bg-transparent border border-white rounded-sm">
-        <img mat-card-image src="../../../assets/myImage2.jpg" alt="Ali Mozaffari">
-        <mat-card-content>
-          <mat-card-actions>
-            <div class="d-flex justify-content-around">
-              <button mat-icon-button
-                      matTooltip="Linkedin"
-                      style="line-height: inherit"
-                      (click)="communicateNavigate('linkedin','https://linkedin.com/in/ali-mozaffari-741211153')"
-                      aria-label="Example icon-button with a heart icon">
-                <fa-icon [icon]="['fab','linkedin-in']"
-                         [classes]="['text-primary','text-center','d-inline-block']"
-                         [size]="'2x'">
-                </fa-icon>
-              </button>
-              <button mat-icon-button
-                      matTooltip="Github"
-                      style="line-height: inherit"
-                      (click)="communicateNavigate('github','https://github.com/Alimzfr')"
-                      aria-label="Example icon-button with a heart icon">
-                <fa-icon [icon]="['fab','github']"
-                         [classes]="['text-primary','text-center','d-inline-block']"
-                         [size]="'2x'">
-                </fa-icon>
-              </button>
-              <button mat-icon-button
-                      matTooltip="Email"
-                      style="line-height: inherit"
-                      (click)="communicateNavigate('email','alimozaffari13701370@gmail.com')"
-                      aria-label="Example icon-button with a heart icon">
-                <fa-icon [icon]="['far','envelope']"
-                         [classes]="['text-primary','text-center','d-inline-block']"
-                         [size]="'2x'">
-                </fa-icon>
-              </button>
-              <button mat-icon-button
-                      matTooltip="Whatsapp"
-                      style="line-height: inherit"
-                      (click)="communicateNavigate('whatsapp','+989199355630')"
-                      aria-label="Example icon-button with a heart icon">
-                <fa-icon [icon]="['fab','whatsapp']"
-                         [classes]="['text-primary','text-center','d-inline-block']"
-                         [size]="'2x'">
-                </fa-icon>
-              </button>
-            </div>
-          </mat-card-actions>
+      <mat-card class="bg-transparent border border-white rounded-sm"
+                #communicateElement>
+        <canvas class="Particles-background"></canvas>
+        <mat-card-content class="h-100">
+          <div class="d-flex align-content-around justify-content-around flex-wrap h-100">
+            <button mat-icon-button
+                    matTooltip="Linkedin"
+                    style="line-height: inherit"
+                    (click)="communicateNavigate('linkedin','https://linkedin.com/in/ali-mozaffari-741211153')"
+                    aria-label="Example icon-button with a heart icon">
+              <fa-icon [icon]="['fab','linkedin-in']"
+                       [classes]="['text-primary','text-center','d-inline-block']"
+                       [size]="'2x'">
+              </fa-icon>
+            </button>
+            <button mat-icon-button
+                    matTooltip="Github"
+                    style="line-height: inherit"
+                    (click)="communicateNavigate('github','https://github.com/Alimzfr')"
+                    aria-label="Example icon-button with a heart icon">
+              <fa-icon [icon]="['fab','github']"
+                       [classes]="['text-primary','text-center','d-inline-block']"
+                       [size]="'2x'">
+              </fa-icon>
+            </button>
+            <button mat-icon-button
+                    matTooltip="Email"
+                    style="line-height: inherit"
+                    (click)="communicateNavigate('email','alimozaffari13701370@gmail.com')"
+                    aria-label="Example icon-button with a heart icon">
+              <fa-icon [icon]="['far','envelope']"
+                       [classes]="['text-primary','text-center','d-inline-block']"
+                       [size]="'2x'">
+              </fa-icon>
+            </button>
+            <button mat-icon-button
+                    matTooltip="Whatsapp"
+                    style="line-height: inherit"
+                    (click)="communicateNavigate('whatsapp','+989199355630')"
+                    aria-label="Example icon-button with a heart icon">
+              <fa-icon [icon]="['fab','whatsapp']"
+                       [classes]="['text-primary','text-center','d-inline-block']"
+                       [size]="'2x'">
+              </fa-icon>
+            </button>
+          </div>
         </mat-card-content>
       </mat-card>
     </div>
     <div class="col-sm-6 col-12 my-3">
-      <mat-card class="bg-transparent border border-white rounded-sm">
+      <mat-card class="bg-transparent border border-white rounded-sm"
+                #formElement>
         <mat-card-content>
-          <div class="mb-3">
-            <p>Thank you for your interest in my website!</p>
-            <p>If you have a general question or comment, please either fill out the contact form below.</p>
-            <p>We look forward to hearing from you.</p>
+          <div class="alimzfr-about-content">
+            <p>Thank you for your interest in my website! If you have a general question or comment, please either fill
+              out the contact form below. We look forward to hearing from you.</p>
           </div>
-          <form [formGroup]="contactForm" (ngSubmit)="onContactFormSubmit()">
-            <mat-form-field class="w-100">
+          <mat-divider></mat-divider>
+          <form [formGroup]="contactForm"
+                (ngSubmit)="onContactFormSubmit()"
+                class="mt-4">
+            <mat-form-field class="w-100 alimzfr-form-field">
               <mat-label>Name</mat-label>
               <input matInput
                      formControlName="name"
                      required>
             </mat-form-field>
 
-            <mat-form-field class="w-100">
+            <mat-form-field class="w-100 alimzfr-form-field">
               <mat-label>Email</mat-label>
               <input matInput
                      formControlName="email"
@@ -75,19 +78,24 @@
                      email>
             </mat-form-field>
 
-            <mat-form-field class="w-100">
-              <mat-label>Leave a comment</mat-label>
+            <mat-form-field class="w-100 alimzfr-form-field">
+              <mat-label>Subject</mat-label>
+              <input matInput
+                     formControlName="subject">
+            </mat-form-field>
+
+            <mat-form-field class="w-100 alimzfr-form-field">
+              <mat-label>Message</mat-label>
               <textarea matInput
-                        formControlName="comment"
-                        required>
+                        formControlName="comment">
               </textarea>
             </mat-form-field>
 
-            <button mat-stroked-button
-                    color="primary"
+            <button mat-button
                     type="submit"
+                    class="border border-dark alimzfr-card-button"
                     [disabled]="contactForm.invalid">
-              <span>Submit</span>
+              <span>Send Message</span>
             </button>
           </form>
         </mat-card-content>
