@@ -2,10 +2,10 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxMaskModule, IConfig} from 'ngx-mask';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {TemplateComponent} from './shareComponents/template/template.component';
@@ -37,7 +37,14 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {LoginComponent} from './authentication/login/login.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {JwtModule} from '@auth0/angular-jwt';
+import {CookieService} from 'ngx-cookie-service';
+import {MonacoEditorModule} from '@materia-ui/ngx-monaco-editor';
+import {AuthInterceptorService} from './authentication/auth-interceptor.service';
+import {AuthResponseModel} from './authentication/auth.model';
+import {CollegeEducationComponent} from './features/education/education.components/college-education/college-education.component';
+import {TrainingCourseComponent} from './features/education/education.components/training-course/training-course.component';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -61,6 +68,8 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     ContentComponent,
     LoadingComponent,
     LoginComponent,
+    CollegeEducationComponent,
+    TrainingCourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,17 +89,28 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     MatTooltipModule,
     MatInputModule,
     MatDialogModule,
+    MatSnackBarModule,
+    MonacoEditorModule,
     NgxMaskModule.forRoot(options),
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {
-          return localStorage.getItem('alimzfr_access_token');
+          const authData: AuthResponseModel = JSON.parse(localStorage.getItem('alimzfr_user'));
+          return authData?.accessToken;
         },
         throwNoTokenError: false,
       }
-    })
+    }),
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    CookieService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

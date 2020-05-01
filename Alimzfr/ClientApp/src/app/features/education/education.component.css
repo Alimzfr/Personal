@@ -6,4 +6,11 @@
 .alimzfr-card-content {
   color: #cccccc; }
 
+.alimzfr-form-field mat-label {
+  color: #6c757d; }
+.alimzfr-form-field input {
+  color: #cccccc; }
+.alimzfr-form-field textarea {
+  color: #cccccc; }
+
 /*# sourceMappingURL=education.component.css.map */

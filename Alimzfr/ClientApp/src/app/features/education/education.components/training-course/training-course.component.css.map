@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA;;mBAEoB;EAClB,KAAK,ECHU,OAAO;;ADMxB,qBAAsB;EACpB,KAAK,ECRU,OAAO;;ADYtB,6BAAU;EACR,KAAK,ECZQ,OAAO;ADetB,yBAAM;EACJ,KAAK,ECjBQ,OAAO;ADoBtB,4BAAS;EACP,KAAK,ECrBQ,OAAO",
+"sources": ["training-course.component.scss","../../../../shareStyles/variables.scss"],
+"names": [],
+"file": "training-course.component.css"
+}

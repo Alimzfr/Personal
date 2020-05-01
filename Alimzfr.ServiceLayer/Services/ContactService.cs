@@ -1,7 +1,6 @@
 ﻿using Alimzfr.DataLayer.Data;
 using Alimzfr.DomainLayer.Entities;
 using Alimzfr.ModelLayer.Models;
-using Alimzfr.ServiceLayer.Interfaces;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -10,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace Alimzfr.ServiceLayer.Services
 {
+    public interface IContactService
+    {
+        Task<int> CreatMessage(UserMessageDto userMessage);
+    }
     public class ContactService : IContactService
     {
         private readonly IMapper _mapper;
@@ -19,12 +22,12 @@ namespace Alimzfr.ServiceLayer.Services
             _context = context;
             _mapper = mapper;
         }
-        public async Task<int> CreatComment(UserCommentDto userComment)
+        public async Task<int> CreatMessage(UserMessageDto userMessage)
         {
-            var newComment = _mapper.Map<UserCommentDto, UserComment>(userComment);
-            _context.userComments.Add(newComment);
+            var newMessage = _mapper.Map<UserMessageDto, UserMessage>(userMessage);
+            _context.UserMessages.Add(newMessage);
             await _context.SaveChangesAsync();
-            return newComment.Id;
+            return newMessage.Id;
         }
     }
 }

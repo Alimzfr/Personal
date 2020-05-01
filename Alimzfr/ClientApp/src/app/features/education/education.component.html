@@ -17,84 +17,15 @@
         </apx-chart>
       </div>
     </div>
-    <div class="col-sm-6 col-12 my-3" *ngFor="let item of collegeEducations">
-      <mat-card class="bg-transparent border border-white">
-        <mat-card-header>
-          <mat-card-title class="alimzfr-card-title">College</mat-card-title>
-        </mat-card-header>
-        <mat-divider></mat-divider>
-        <mat-card-content>
-          <div class="mt-2">
-            <div style="vertical-align: middle">
-              <fa-icon [icon]="['fas','graduation-cap']"
-                       [size]="'lg'"
-                       [classes]="['text-primary','text-center','d-inline-block']"
-                       [styles]="{'width':'25px'}">
-              </fa-icon>
-              <strong class="alimzfr-card-topic"> Degree: </strong>
-              <span class="alimzfr-card-content"> {{item.englishDegreeLevel}} Of </span>
-              <span class="alimzfr-card-content">{{item.englishAcademicField}}</span>
-            </div>
-            <div style="vertical-align: middle">
-              <fa-icon [icon]="['fas','university']"
-                       [size]="'lg'"
-                       [classes]="['text-primary','text-center','d-inline-block']"
-                       [styles]="{'width':'25px'}"></fa-icon>
-              <strong class="alimzfr-card-topic"> University: </strong>
-              <span class="alimzfr-card-content">{{item.englishUniversity}}</span>
-            </div>
-            <div style="vertical-align: middle">
-              <fa-icon [icon]="['fas','calendar-check']"
-                       [size]="'lg'"
-                       [classes]="['text-primary','text-center','d-inline-block']"
-                       [styles]="{'width':'25px'}"></fa-icon>
-              <strong class="alimzfr-card-topic"> Graduation Date: </strong>
-              <span class="alimzfr-card-content">{{item.gregorianGraduationDate | mask: '9999/99'}}</span>
-            </div>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </div>
-    <div class="col-sm-6 col-12 my-3" *ngFor="let item of educations">
-      <mat-card class="bg-transparent border border-white">
-        <mat-card-header>
-          <mat-card-title class="alimzfr-card-title">Certificate</mat-card-title>
-        </mat-card-header>
-        <mat-divider></mat-divider>
-        <mat-card-content>
-          <div class="mt-2">
-            <div style="vertical-align: middle">
-              <fa-icon [icon]="['fas','book']"
-                       [size]="'lg'"
-                       [classes]="['text-primary','text-center','d-inline-block']"
-                       [styles]="{'width':'25px'}">
-              </fa-icon>
-              <strong class="alimzfr-card-topic"> Course: </strong>
-              <span class="alimzfr-card-content"> {{item.englishCourseName}} </span>
-            </div>
-            <div style="vertical-align: middle">
-              <fa-icon [icon]="['fas','university']"
-                       [size]="'lg'"
-                       [classes]="['text-primary','text-center','d-inline-block']"
-                       [styles]="{'width':'25px'}"></fa-icon>
-              <strong class="alimzfr-card-topic"> Educational Institute: </strong>
-              <span class="alimzfr-card-content">{{item.englishEducationalInstitute}}</span>
-            </div>
-            <div style="vertical-align: middle">
-              <fa-icon [icon]="['fas','clock']"
-                       [size]="'lg'"
-                       [classes]="['text-primary','text-center','d-inline-block']"
-                       [styles]="{'width':'25px'}"></fa-icon>
-              <strong class="alimzfr-card-topic"> Duration: </strong>
-              <span class="alimzfr-card-content">{{item.duration}}</span>
-            </div>
-          </div>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button class="border border-dark alimzfr-card-button">Download</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
+    <app-college-education class="col-sm-6 col-12 my-3"
+                           *ngFor="let item of collegeEducations"
+                           [collegeEducation]="item">
+    </app-college-education>
+
+    <app-training-course class="col-sm-6 col-12 my-3"
+                         *ngFor="let item of educations"
+                         [trainingCourse]="item">
+    </app-training-course>
 
   </div>
 </div>

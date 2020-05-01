@@ -28,19 +28,19 @@ export interface TrainingCourseModel {
 }
 
 export interface CollegeEducationModel {
-  id: number;
-  creatDate: string;
-  modifyDate: string;
-  persianDegreeLevel: string;
-  englishDegreeLevel: string;
-  persianAcademicField: string;
-  englishAcademicField: string;
-  persianUniversity: string;
-  englishUniversity: string;
-  persianDescription: string;
-  englishDescription: string;
-  gregorianGraduationDate: string;
-  persianGraduationDate: string;
+  id?: number;
+  createDate?: string;
+  ModifyDate?: string;
+  persianDegreeLevel?: string;
+  englishDegreeLevel?: string;
+  persianAcademicField?: string;
+  englishAcademicField?: string;
+  persianUniversity?: string;
+  englishUniversity?: string;
+  persianDescription?: string;
+  englishDescription?: string;
+  gregorianGraduationDate?: string;
+  persianGraduationDate?: string;
 }
 
 export interface ChartOptions {

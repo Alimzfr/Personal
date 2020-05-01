@@ -1,8 +1,9 @@
-import {Component, HostListener, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {TrainingCourseModel, CollegeEducationModel, ChartOptions} from './education.model/education.model';
 import {EducationService} from './education.services/education.service';
 import {ChartComponent} from 'ng-apexcharts';
-import {toArray} from 'rxjs/operators';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {AuthService} from '../../authentication/auth.service';
 
 @Component({
   selector: 'app-education',
@@ -21,31 +22,25 @@ export class EducationComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true;
-    this.getEducations();
+    this.getTrainingCourses();
     this.getCollegeEducations();
   }
 
-  getEducations() {
-    this.service.getEducations().subscribe(value => {
+  getTrainingCourses() {
+    this.service.getTrainingCourses().subscribe(value => {
       this.educations = value;
-      this.fillCartEducations(value);
+      this.fillCartTrainingCourses(value);
     }, error => {
       console.log(error);
     });
   }
 
-  getCollegeEducations() {
-    this.service.getCollegeEducations().subscribe(value => {
-      this.collegeEducations = value;
-    });
-  }
-
-  fillCartEducations(educations: TrainingCourseModel[]) {
+  fillCartTrainingCourses(trainingCourses: TrainingCourseModel[]) {
     this.chartOptions = {
       series: [
         {
           name: 'Duration',
-          data: educations.map(value => {
+          data: trainingCourses.map(value => {
             return value.duration;
           })
         }
@@ -73,7 +68,7 @@ export class EducationComponent implements OnInit {
         title: {
           text: '(Courses)'
         },
-        categories: educations.map(value => {
+        categories: trainingCourses.map(value => {
           return value.englishCourseName;
         }),
         labels: {
@@ -97,6 +92,14 @@ export class EducationComponent implements OnInit {
       }
     };
     this.loading = false;
+  }
+
+  getCollegeEducations() {
+    this.service.getCollegeEducations().subscribe(value => {
+      this.collegeEducations = value;
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

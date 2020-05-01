@@ -10,7 +10,7 @@ namespace Alimzfr.DomainLayer.Entities
     {
         public int Id { get; set; }
         public DateTime CreateDate { get; set; }
-        public DateTime? ModifiyDate { get; set; }
+        public DateTime? ModifyDate { get; set; }
         public string PersianDegreeLevel { get; set; }
         public string EnglishDegreeLevel { get; set; }
         public string PersianAcademicField { get; set; }
@@ -19,7 +19,8 @@ namespace Alimzfr.DomainLayer.Entities
         public string EnglishUniversity { get; set; }
         public string PersianDescription { get; set; }
         public string EnglishDescription { get; set; }
+
         [Column(TypeName = "date")]
-        public DateTime GraduationDate { get; set; }
+        public DateTime? GraduationDate { get; set; }
     }
 }

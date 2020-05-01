@@ -1,4 +1,5 @@
-import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, HostListener, OnDestroy, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
 
 declare var Particles: any;
 
@@ -18,6 +19,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.initParticles();
+    if (window.innerWidth < 768) {
+      window.dispatchEvent(new Event('resize'));
+    }
   }
 
   ngOnDestroy(): void {

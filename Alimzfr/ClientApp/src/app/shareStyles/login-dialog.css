@@ -1,4 +1,7 @@
 .alimzfr-dialog-panel mat-dialog-container {
   padding: 0 !important; }
 
+div.cdk-overlay-container {
+  z-index: 100000 !important; }
+
 /*# sourceMappingURL=login-dialog.css.map */

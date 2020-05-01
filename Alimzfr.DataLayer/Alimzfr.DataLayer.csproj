@@ -5,8 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Data\Migrations\20200331161033_nullableToDate.cs" />
-    <Compile Remove="Data\Migrations\20200331161033_nullableToDate.Designer.cs" />
+    <Compile Remove="Migrations\20200409080254_init.cs" />
+    <Compile Remove="Migrations\20200409080254_init.Designer.cs" />
+    <Compile Remove="Migrations\20200409080908_init.cs" />
+    <Compile Remove="Migrations\20200409080908_init.Designer.cs" />
+    <Compile Remove="Migrations\20200409081330_init.cs" />
+    <Compile Remove="Migrations\20200409081330_init.Designer.cs" />
+    <Compile Remove="Migrations\20200409081826_init.cs" />
+    <Compile Remove="Migrations\20200409081826_init.Designer.cs" />
+    <Compile Remove="Migrations\20200409082557_init.cs" />
+    <Compile Remove="Migrations\20200409082557_init.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Alimzfr.ModelLayer.Models;
-using Alimzfr.ServiceLayer.Interfaces;
+using Alimzfr.ServiceLayer.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,10 +20,10 @@ namespace Alimzfr.Controllers
         }
 
         [HttpPost]
-        public async Task<int> SendComment([FromBody]UserCommentDto userComment)
+        public async Task<int> SendComment([FromBody]UserMessageDto userMessage)
         {
-            var commetId = await _contactService.CreatComment(userComment);
-            return commetId;
+            var messageId = await _contactService.CreatMessage(userMessage);
+            return messageId;
         }
     }
 }

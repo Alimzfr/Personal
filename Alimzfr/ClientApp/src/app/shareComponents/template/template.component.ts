@@ -4,7 +4,6 @@ import {
   ElementRef,
   HostListener,
   OnInit,
-  Renderer2,
   ViewChild
 } from '@angular/core';
 import {SidebarComponent} from './template.components/sidebar/sidebar.component';
@@ -17,20 +16,23 @@ import {SidebarComponent} from './template.components/sidebar/sidebar.component'
 export class TemplateComponent implements OnInit, AfterViewInit {
   sidebarIsOpen: boolean;
   windowInnerHeight: number;
+  windowInnerWidth: number;
   @ViewChild(SidebarComponent, {read: ElementRef}) sidebarComponent: ElementRef;
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.windowInnerHeight = window.innerHeight;
+    this.windowInnerWidth = window.innerWidth;
     this.sidebarComponent.nativeElement.style.height = this.windowInnerHeight + 'px';
   }
 
-  constructor(private renderer: Renderer2) {
+  constructor() {
   }
 
 
   ngOnInit(): void {
     this.windowInnerHeight = window.innerHeight;
+    this.windowInnerWidth = window.innerWidth;
     this.sidebarIsOpen = window.innerWidth >= 768;
   }
 
@@ -40,7 +42,9 @@ export class TemplateComponent implements OnInit, AfterViewInit {
 
   sidebarToggleHandler() {
     this.sidebarIsOpen = !this.sidebarIsOpen;
-    const windowResizeTrigger = setInterval(() => window.dispatchEvent(new Event('resize')), 10);
-    setTimeout(() => clearInterval(windowResizeTrigger), 600);
+    if (this.windowInnerWidth >= 768) {
+      const windowResizeTrigger = setInterval(() => window.dispatchEvent(new Event('resize')), 10);
+      setTimeout(() => clearInterval(windowResizeTrigger), 600);
+    }
   }
 }

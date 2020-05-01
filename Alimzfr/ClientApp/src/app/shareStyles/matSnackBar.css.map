@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,wBAAyB;EACvB,UAAU,EAAE,eAAe;EAC3B,KAAK,EAAE,kBAAkB;;AAG3B,sBAAuB;EACrB,UAAU,EAAE,eAAe;EAC3B,KAAK,EAAE,kBAAkB;;AAG3B,wBAAyB;EACvB,UAAU,EAAE,eAAe;EAC3B,KAAK,EAAE,kBAAkB;;AAG3B,qBAAsB;EACpB,UAAU,EAAE,eAAe;EAC3B,KAAK,EAAE,kBAAkB",
+"sources": ["matSnackBar.scss"],
+"names": [],
+"file": "matSnackBar.css"
+}

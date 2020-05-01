@@ -7,5 +7,19 @@
 }
 
 .alimzfr-card-content {
-color: $alimzfr-color1;
+  color: $alimzfr-color1;
+}
+
+.alimzfr-form-field {
+  mat-label {
+    color: $alimzfr-color2;
+  }
+
+  input {
+    color: $alimzfr-color1;
+  }
+
+  textarea {
+    color: $alimzfr-color1;
+  }
 }

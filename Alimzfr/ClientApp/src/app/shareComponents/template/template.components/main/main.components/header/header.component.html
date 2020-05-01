@@ -6,18 +6,31 @@
               (click)="sidebarToggleHandler()">
         <fa-icon [icon]="['fas','bars']" [size]="'lg'" [classes]="['alimzfr-header-btn']"></fa-icon>
       </button>
+      <h4 class="d-inline-block my-0 mx-2 text-white"
+          *ngIf="isAuthenticated">{{displayName}}</h4>
 
       <img src="../../../../../../../assets/myLogo.png"
            alt="Logo"
            style="height: 30px; width: auto"
-           class="mx-2">
+           class="mx-2"
+           *ngIf="!isAuthenticated">
 
       <button mat-icon-button
               class="mr-0 ml-auto"
+              matTooltip="login"
               (click)="loginHandler()"
               aria-label="login button"
-              disabled>
+              *ngIf="!isAuthenticated">
         <fa-icon [icon]="['fas','sign-in-alt']" [size]="'lg'" [classes]="['alimzfr-header-btn']"></fa-icon>
+      </button>
+
+      <button mat-icon-button
+              class="mr-0 ml-auto"
+              matTooltip="Logout"
+              (click)="logoutHandler()"
+              aria-label="logout button"
+              *ngIf="isAuthenticated">
+        <fa-icon [icon]="['fas','sign-out-alt']" [size]="'lg'" [classes]="['alimzfr-header-btn']"></fa-icon>
       </button>
 
       <button mat-icon-button

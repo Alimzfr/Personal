@@ -14,8 +14,6 @@ export interface AuthResponseModel {
   email: string;
   accessToken: string;
   refreshToken: string;
-  accessTokenExpirationDate: Date;
-  refreshTokenExpirationDate: Date;
 }
 
 export class User {

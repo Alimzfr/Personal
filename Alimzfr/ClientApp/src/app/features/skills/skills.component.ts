@@ -98,4 +98,24 @@ export class SkillsComponent implements OnInit {
     });
   }
 
+  createSkill(skill: SkillModel) {
+    this.service.createSkill(skill).subscribe(value => {
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  updateSkill(skill: SkillModel) {
+    this.service.updateSkill(skill).subscribe(value => {
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  deleteSkills(ids: number[]) {
+    this.service.deleteSkills(ids).subscribe(value => {
+    }, error => {
+      console.log(error);
+    });
+  }
 }

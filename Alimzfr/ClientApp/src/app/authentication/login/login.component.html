@@ -4,10 +4,9 @@
     <div class="col-12 p-3">
       <form [formGroup]="loginForm" (ngSubmit)="onLoginFormSubmit()">
         <mat-form-field class="w-100">
-          <mat-label>Email</mat-label>
+          <mat-label>Username</mat-label>
           <input matInput
-                 formControlName="email"
-                 email
+                 formControlName="username"
                  required>
         </mat-form-field>
         <mat-form-field class="w-100">

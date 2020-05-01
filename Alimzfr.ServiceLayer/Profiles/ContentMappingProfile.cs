@@ -13,7 +13,8 @@ namespace Alimzfr.ServiceLayer.Profiles
         {
             CreateMap<MenuItem, MenuItemDto>();
 
-            CreateMap<About, AboutDto>();
+            CreateMap<About, AboutDto>()
+            .ReverseMap();
 
             CreateMap<Skill, SkillDto>()
                 .ForMember(dest => dest.PersianCategoryName,
@@ -21,28 +22,33 @@ namespace Alimzfr.ServiceLayer.Profiles
                 .ForMember(dest => dest.EnglishCategoryName,
                 opt => opt.MapFrom(src => src.Category.EnglishCategoryName))
                 .ForMember(dest => dest.CategoryColor,
-                opt => opt.MapFrom(src => src.Category.CategoryColor));
+                opt => opt.MapFrom(src => src.Category.CategoryColor))
+                .ReverseMap();
 
             CreateMap<Experience, ExperienceDto>()
                 .ForMember(dest => dest.GregorianFromDate,
                 opt => opt.MapFrom(src => src.FromDate))
                 .ForMember(dest => dest.GregorianToDate,
-                opt => opt.MapFrom(src => src.ToDate));
+                opt => opt.MapFrom(src => src.ToDate))
+                .ReverseMap();
 
             CreateMap<TrainingCourse, TrainingCourseDto>()
                 .ForMember(dest => dest.GregorianFromDate,
                 opt => opt.MapFrom(src => src.FromDate))
                 .ForMember(dest => dest.GregorianToDate,
-                opt => opt.MapFrom(src => src.ToDate));
+                opt => opt.MapFrom(src => src.ToDate))
+                .ReverseMap();
 
             CreateMap<CollegeEducation, CollegeEducationDto>()
                 .ForMember(dest => dest.GregorianGraduationDate,
-                opt => opt.MapFrom(src => src.GraduationDate));
+                opt => opt.MapFrom(src => src.GraduationDate))
+                .ReverseMap();
 
-            CreateMap<UserComment, UserCommentDto>()
+            CreateMap<UserMessage, UserMessageDto>()
                 .ReverseMap()
                 .ForPath(src => src.CreatDate,
-                opt => opt.MapFrom(src => DateTime.Now));
+                opt => opt.MapFrom(src => DateTime.Now))
+                .ReverseMap();
 
         }
     }

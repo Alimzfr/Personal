@@ -3,3 +3,9 @@
 .alimzfr-about-content {
   color: $alimzfr-color1;
 }
+
+@import "../../shareStyles/variables";
+
+.alimzfr-card-button {
+  color: $alimzfr-color2;
+}

@@ -4,7 +4,7 @@
   border: 1px solid #cccccc; }
 
 .Particles-background {
-  position: absolute;
+  position: absolute !important;
   display: block;
   top: 0;
   left: 0;
@@ -79,7 +79,8 @@ h1, h2, h3, h4 {
 .comp {
   width: 100%;
   height: 194px;
-  text-align: center; }
+  text-align: center;
+  z-index: 2; }
   .comp .monitor {
     width: 275px;
     height: 181px;

@@ -1,7 +1,6 @@
 ﻿using Alimzfr.DataLayer.Data;
 using Alimzfr.DomainLayer.Entities;
 using Alimzfr.ModelLayer.Models;
-using Alimzfr.ServiceLayer.Interfaces;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,6 +11,11 @@ using System.Threading.Tasks;
 
 namespace Alimzfr.ServiceLayer.Services
 {
+    public interface IMenuService
+    {
+        Task<IEnumerable<MenuItemDto>> GetMenuItems();
+    }
+
     public class MenuService : IMenuService
     {
         private readonly IMapper _mapper;

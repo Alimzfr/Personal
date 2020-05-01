@@ -30,4 +30,25 @@ export class ExperienceComponent implements OnInit {
     });
   }
 
+  createExperience(experience: ExperienceModel) {
+    this.service.createExperience(experience).subscribe(value => {
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  updateExperience(experience: ExperienceModel) {
+    this.service.updateExperience(experience).subscribe(value => {
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  deleteExperiences() {
+    this.service.deleteExperiences([1, 2, 3]).subscribe(value => {
+    }, error => {
+      console.log(error);
+    });
+  }
+
 }

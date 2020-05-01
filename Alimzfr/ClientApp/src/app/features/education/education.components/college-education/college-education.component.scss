@@ -1,0 +1,25 @@
+@import "../../../../shareStyles/variables";
+
+.alimzfr-card-button,
+.alimzfr-card-topic,
+.alimzfr-card-title {
+  color: $alimzfr-color2;
+}
+
+.alimzfr-card-content {
+  color: $alimzfr-color1;
+}
+
+.alimzfr-form-field {
+  mat-label {
+    color: $alimzfr-color2;
+  }
+
+  input {
+    color: $alimzfr-color1;
+  }
+
+  textarea {
+    color: $alimzfr-color1;
+  }
+}

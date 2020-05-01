@@ -1,0 +1,129 @@
+<mat-card class="bg-transparent border border-white">
+  <mat-card-header>
+    <mat-card-title class="alimzfr-card-title">College</mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <div class="mt-2">
+
+
+      <div style="vertical-align: middle">
+        <div *ngIf="!isAuthenticated">
+          <fa-icon [icon]="['fas','graduation-cap']"
+                   [size]="'lg'"
+                   [classes]="['text-primary','text-center','d-inline-block']"
+                   [styles]="{'width':'25px'}">
+          </fa-icon>
+          <strong class="alimzfr-card-topic">Degree Level: </strong>
+          <span class="alimzfr-card-content"> {{collegeEducation.englishDegreeLevel}}</span>
+        </div>
+        <mat-form-field class="w-50 alimzfr-form-field"
+                        *ngIf="isAuthenticated">
+          <mat-label>
+            <fa-icon [icon]="['fas','graduation-cap']"
+                     [size]="'lg'"
+                     [classes]="['text-primary','text-center','d-inline-block']"
+                     [styles]="{'width':'25px'}">
+            </fa-icon>
+            <strong class="alimzfr-card-topic">Degree Level: </strong>
+          </mat-label>
+          <input matInput
+                 [(ngModel)]="collegeEducation.englishDegreeLevel">
+        </mat-form-field>
+        <mat-form-field class="w-50 alimzfr-form-field"
+                        *ngIf="isAuthenticated">
+          <mat-label>
+            <fa-icon [icon]="['fab','git-alt']"
+                     [size]="'lg'"
+                     [classes]="['text-primary','text-center','d-inline-block']"
+                     [styles]="{'width':'25px'}">
+            </fa-icon>
+            <strong class="alimzfr-card-topic">Academic Field: </strong>
+          </mat-label>
+          <input matInput
+                 [(ngModel)]="collegeEducation.englishAcademicField">
+        </mat-form-field>
+      </div>
+      <div style="vertical-align: middle">
+        <div *ngIf="!isAuthenticated">
+          <fa-icon [icon]="['fab','git-alt']"
+                   [size]="'lg'"
+                   [classes]="['text-primary','text-center','d-inline-block']"
+                   [styles]="{'width':'25px'}">
+          </fa-icon>
+          <strong class="alimzfr-card-topic">Academic Field: </strong>
+          <span class="alimzfr-card-content">{{collegeEducation.englishAcademicField}}</span>
+        </div>
+      </div>
+
+      <div style="vertical-align: middle">
+        <div *ngIf="!isAuthenticated">
+          <fa-icon [icon]="['fas','university']"
+                   [size]="'lg'"
+                   [classes]="['text-primary','text-center','d-inline-block']"
+                   [styles]="{'width':'25px'}"></fa-icon>
+          <strong class="alimzfr-card-topic">University: </strong>
+          <span class="alimzfr-card-content">{{collegeEducation.englishUniversity}}</span>
+        </div>
+        <mat-form-field class="w-100 alimzfr-form-field"
+                        *ngIf="isAuthenticated">
+          <mat-label>
+            <fa-icon [icon]="['fas','university']"
+                     [size]="'lg'"
+                     [classes]="['text-primary','text-center','d-inline-block']"
+                     [styles]="{'width':'25px'}"></fa-icon>
+            <strong class="alimzfr-card-topic">University: </strong>
+          </mat-label>
+          <input matInput
+                 [(ngModel)]="collegeEducation.englishUniversity">
+        </mat-form-field>
+      </div>
+
+
+      <div style="vertical-align: middle">
+        <div *ngIf="!isAuthenticated">
+          <fa-icon [icon]="['fas','calendar-check']"
+                   [size]="'lg'"
+                   [classes]="['text-primary','text-center','d-inline-block']"
+                   [styles]="{'width':'25px'}"></fa-icon>
+          <strong class="alimzfr-card-topic">Graduation Date: </strong>
+          <span
+            class="alimzfr-card-content">{{collegeEducation.gregorianGraduationDate | mask: '9999/99'}}</span>
+        </div>
+        <mat-form-field class="w-100 alimzfr-form-field"
+                        *ngIf="isAuthenticated">
+          <mat-label>
+            <fa-icon [icon]="['fas','calendar-check']"
+                     [size]="'lg'"
+                     [classes]="['text-primary','text-center','d-inline-block']"
+                     [styles]="{'width':'25px'}"></fa-icon>
+            <strong class="alimzfr-card-topic">Graduation Date: </strong>
+          </mat-label>
+          <input matInput
+                 [(ngModel)]="collegeEducation.gregorianGraduationDate"
+                 mask="0000-00-00"
+                 [dropSpecialCharacters]="false">
+        </mat-form-field>
+      </div>
+
+
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button
+            class="mx-2 alimzfr-card-button"
+            matTooltip="Edit"
+            aria-label="Edit"
+            (click)="updateCollegeEducation()"
+            *ngIf="isAuthenticated">
+      <fa-icon [icon]="['far','edit']" [size]="'lg'"></fa-icon>
+    </button>
+    <button mat-icon-button
+            class="mx-2 alimzfr-card-button"
+            matTooltip="Delete"
+            aria-label="Delete"
+            *ngIf="isAuthenticated">
+      <fa-icon [icon]="['far','trash-alt']" [size]="'lg'"></fa-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

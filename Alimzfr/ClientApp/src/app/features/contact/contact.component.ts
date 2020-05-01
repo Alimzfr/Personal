@@ -1,6 +1,7 @@
 import {AfterViewChecked, AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {ContactService} from './contact.services/contact.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 declare var Particles: any;
 
@@ -24,7 +25,8 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
     this.communicateElement.nativeElement.style.height = this.formElement.nativeElement.offsetHeight + 'px';
   }
 
-  constructor(private service: ContactService) {
+  constructor(private service: ContactService,
+              private message: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -33,7 +35,17 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
   onContactFormSubmit() {
     if (this.contactForm.valid) {
       this.service.sendComment(this.contactForm.value).subscribe(value => {
-        console.log(value);
+        this.message.open('Thanks For Message', '×', {
+          duration: 5000,
+          panelClass: ['alimzfr-message-success'],
+          verticalPosition: 'top',
+        });
+      }, error => {
+        this.message.open('Error Occurred', '×', {
+          duration: 5000,
+          panelClass: 'alimzfr-message-error',
+          verticalPosition: 'top',
+        });
       });
       this.contactForm.reset();
     }
