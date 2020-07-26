@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAQ,gEAAwD;AAKhE,gBAAiB;EACf,KAAK,EAAE,IAAI;EACX,MAAM,EAJQ,KAAK;;AAQnB,iBAAG;EACD,KAAK,ECXQ,OAAO;EDYpB,WAAW,EAAE,qBAAqB;EAClC,cAAc,EAAE,SAAS;AAE3B,iBAAE;EACA,WAAW,EAAE,qBAAqB;EAClC,cAAc,EAAE,SAAS;EAC7B,KAAK,EChBY,OAAO",
-"sources": ["picture.component.scss","../../../../../../shareStyles/variables.scss"],
+"mappings": "AAAQ,gEAAwD;AAKhE,gBAAiB;EACf,KAAK,EAAE,IAAI;EACX,MAAM,EAJQ,KAAK",
+"sources": ["picture.component.scss"],
 "names": [],
 "file": "picture.component.css"
 }

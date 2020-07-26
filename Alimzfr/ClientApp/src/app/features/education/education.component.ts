@@ -53,7 +53,10 @@ export class EducationComponent implements OnInit {
         bar: {
           horizontal: false,
           columnWidth: '50%',
-          endingShape: 'rounded'
+          endingShape: 'rounded',
+          colors: {
+            ranges: [{from: 0, to: 1000, color: '#ffcc33'}]
+          }
         }
       },
       dataLabels: {
@@ -66,7 +69,10 @@ export class EducationComponent implements OnInit {
       },
       xaxis: {
         title: {
-          text: '(Courses)'
+          text: '(Courses)',
+          style: {
+            color: '#6c757d'
+          }
         },
         categories: trainingCourses.map(value => {
           return value.englishCourseName;
@@ -77,13 +83,19 @@ export class EducationComponent implements OnInit {
       },
       yaxis: {
         title: {
-          text: '(hours)'
+          text: '(Hours)',
+          style: {
+            color: '#6c757d'
+          }
         }
       },
       fill: {
         opacity: 1
       },
       tooltip: {
+        marker: {
+          fillColors: ['#ffcc33']
+        },
         y: {
           formatter: (val) => {
             return val + ' hours';

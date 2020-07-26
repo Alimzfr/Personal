@@ -1,22 +1,36 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ExperienceModel} from './experience.models/experience.model';
 import {ExperienceService} from './experience.services/experience.service';
+import {Subscription} from 'rxjs';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {AuthService} from '../../authentication/auth.service';
 
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.scss']
 })
-export class ExperienceComponent implements OnInit {
+export class ExperienceComponent implements OnInit, OnDestroy {
   experiences: ExperienceModel[];
   loading: boolean;
+  isAuthenticated = false;
+  private userSub: Subscription;
 
-  constructor(private service: ExperienceService) {
+  constructor(private service: ExperienceService,
+              private message: MatSnackBar,
+              private authService: AuthService) {
   }
 
   ngOnInit(): void {
+    this.userSub = this.authService.user.subscribe(user => {
+      this.isAuthenticated = !!user;
+    });
     this.loading = true;
     this.getExperiences();
+  }
+
+  ngOnDestroy(): void {
+    this.userSub.unsubscribe();
   }
 
 

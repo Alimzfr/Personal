@@ -2,7 +2,7 @@
   <button mat-button
           *ngFor="let item of menuItems"
           [routerLink]="item.routLink"
-          [routerLinkActive]="'text-primary'"
+          [routerLinkActive]="'alimzfr-menu-active-link'"
           (click)="clickMenuHandler()"
           class="w-100 alimzfr-menu-link">
     {{item.englishTitle}}

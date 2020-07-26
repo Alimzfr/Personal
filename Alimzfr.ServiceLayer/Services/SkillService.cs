@@ -14,8 +14,8 @@ namespace Alimzfr.ServiceLayer.Services
     public interface ISkillService
     {
         Task<IEnumerable<SkillDto>> GetSkills();
-        Task<bool> CreateSkill(SkillDto skill);
-        Task<bool> UpdateSkill(SkillDto skill);
+        Task<int> CreateSkill(SkillDto skill);
+        Task<int> UpdateSkill(SkillDto skill);
         Task<bool> DeleteSkills(int[] Ids);
     }
 
@@ -35,34 +35,36 @@ namespace Alimzfr.ServiceLayer.Services
             return data;
         }
 
-        public async Task<bool> CreateSkill(SkillDto skill)
+        public async Task<int> CreateSkill(SkillDto skill)
         {
             try
             {
                 var newSkill = _mapper.Map<SkillDto, Skill>(skill);
                 _context.Skills.Add(newSkill);
                 await _context.SaveChangesAsync();
-                return true;
+                return newSkill.Id;
             }
             catch (Exception)
             {
-                return false;
+                throw new Exception("error occurred during create skill");
             }
         }
 
-        public async Task<bool> UpdateSkill(SkillDto skill)
+        public async Task<int> UpdateSkill(SkillDto skill)
         {
             try
             {
-                var updateSkill = _mapper.Map<SkillDto, Skill>(skill);
-                _context.Skills.Update(updateSkill);
+                var oldSkill = await _context.Skills.Include(x => x.Category).Where(x => x.Id == skill.Id).FirstOrDefaultAsync();
+                oldSkill.ModifyDate = skill.ModifyDate;
+
+
                 await _context.SaveChangesAsync();
-                return true;
+                return oldSkill.Id;
             }
             catch (Exception)
             {
 
-                return false;
+                throw new Exception("error occurred during update skill");
             }
         }
 
@@ -76,7 +78,7 @@ namespace Alimzfr.ServiceLayer.Services
             }
             catch (Exception)
             {
-                return false;
+                throw new Exception("error occurred during delete skill");
             }
         }
     }

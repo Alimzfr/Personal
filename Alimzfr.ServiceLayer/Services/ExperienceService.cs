@@ -14,8 +14,8 @@ namespace Alimzfr.ServiceLayer.Services
     public interface IExperienceService
     {
         Task<IEnumerable<ExperienceDto>> GetExperiences();
-        Task<bool> CreateExperience(ExperienceDto experience);
-        Task<bool> UpdateExperience(ExperienceDto experience);
+        Task<int> CreateExperience(ExperienceDto experience);
+        Task<int> UpdateExperience(ExperienceDto experience);
         Task<bool> DeleteExperiences(int[] Ids);
     }
 
@@ -36,33 +36,48 @@ namespace Alimzfr.ServiceLayer.Services
             return data;
         }
 
-        public async Task<bool> CreateExperience(ExperienceDto experience)
+        public async Task<int> CreateExperience(ExperienceDto experience)
         {
             try
             {
                 var newExperience = _mapper.Map<ExperienceDto, Experience>(experience);
                 _context.Experiences.Add(newExperience);
                 await _context.SaveChangesAsync();
-                return true;
+                return newExperience.Id;
+
             }
             catch (Exception)
             {
-                return false;
+                throw new Exception("error occurred during create experience");
             }
         }
 
-        public async Task<bool> UpdateExperience(ExperienceDto experience)
+        public async Task<int> UpdateExperience(ExperienceDto experience)
         {
             try
             {
-                var updateExperience = _mapper.Map<ExperienceDto, Experience>(experience);
-                _context.Experiences.Update(updateExperience);
+                var oldExperience = await _context.Experiences.Where(x => x.Id == experience.Id).FirstOrDefaultAsync();
+                oldExperience.ModifyDate = DateTime.Now;
+
+                oldExperience.EnglishCompanyName = experience.EnglishCompanyName;
+                oldExperience.EnglishDescription = experience.EnglishDescription;
+                oldExperience.EnglishJobTitle = experience.EnglishJobTitle;
+
+                oldExperience.PersianCompanyName = experience.PersianCompanyName;
+                oldExperience.PersianDescription = experience.PersianDescription;
+                oldExperience.PersianJobTitle = experience.PersianJobTitle;
+
+                oldExperience.FromDate = experience.GregorianFromDate;
+                oldExperience.ToDate = experience.GregorianToDate;
+                oldExperience.SequenceNumber = experience.SequenceNumber;
+
                 await _context.SaveChangesAsync();
-                return true;
+                return oldExperience.Id;
+
             }
             catch (Exception)
             {
-                return false;
+                throw new Exception("error occurred during update experience");
             }
         }
 

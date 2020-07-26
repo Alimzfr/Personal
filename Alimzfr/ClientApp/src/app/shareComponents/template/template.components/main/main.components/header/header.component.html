@@ -6,14 +6,7 @@
               (click)="sidebarToggleHandler()">
         <fa-icon [icon]="['fas','bars']" [size]="'lg'" [classes]="['alimzfr-header-btn']"></fa-icon>
       </button>
-      <h4 class="d-inline-block my-0 mx-2 text-white"
-          *ngIf="isAuthenticated">{{displayName}}</h4>
-
-      <img src="../../../../../../../assets/myLogo.png"
-           alt="Logo"
-           style="height: 30px; width: auto"
-           class="mx-2"
-           *ngIf="!isAuthenticated">
+      <h4 class="d-inline-block my-0 mx-2 text-white">{{displayName}}</h4>
 
       <button mat-icon-button
               class="mr-0 ml-auto"

@@ -13,7 +13,7 @@
             <mat-card-header>
               <mat-card-title class="mb-2 mb-sm-3 alimzfr-card-title">
                 <fa-icon [icon]="['far','building']"
-                         [classes]="['text-primary','text-center','d-inline-block']"
+                         [classes]="['text-primary','text-center','d-inline-block','alimzfr-icon']"
                          [styles]="{'width':'25px'}">
                 </fa-icon>
                 <span class="mx-2">{{item.englishCompanyName}}</span>
@@ -29,6 +29,23 @@
             <mat-card-content class="alimzfr-card-content p-3">
               <p>{{item.englishDescription}}</p>
             </mat-card-content>
+            <mat-card-actions>
+              <button mat-icon-button
+                      class="mx-2 alimzfr-card-button"
+                      matTooltip="Edit"
+                      aria-label="Edit"
+                      (click)="updateExperience(item)"
+                      *ngIf="isAuthenticated">
+                <fa-icon [icon]="['far','edit']" [size]="'lg'"></fa-icon>
+              </button>
+              <button mat-icon-button
+                      class="mx-2 alimzfr-card-button"
+                      matTooltip="Delete"
+                      aria-label="Delete"
+                      *ngIf="isAuthenticated">
+                <fa-icon [icon]="['far','trash-alt']" [size]="'lg'"></fa-icon>
+              </button>
+            </mat-card-actions>
           </mat-card>
         </mat-step>
         <ng-template matStepperIcon="edit">
