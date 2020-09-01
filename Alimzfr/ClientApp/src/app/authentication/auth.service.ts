@@ -3,7 +3,7 @@ import {AuthResponseModel, LoginModel, User} from './auth.model';
 import {BehaviorSubject, Observable, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
-import {catchError} from 'rxjs/operators';
+import {catchError} from 'rxjs/internal/operators';
 import {tap} from 'rxjs/internal/operators/tap';
 import {environment} from '../../environments/environment';
 

@@ -4,6 +4,7 @@ import {ExperienceService} from './experience.services/experience.service';
 import {Subscription} from 'rxjs';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {AuthService} from '../../authentication/auth.service';
+import {ConnectionService} from '../../shareServices/connection.service';
 
 @Component({
   selector: 'app-experience',
@@ -15,10 +16,13 @@ export class ExperienceComponent implements OnInit, OnDestroy {
   loading: boolean;
   isAuthenticated = false;
   private userSub: Subscription;
+  isOnline: boolean;
 
   constructor(private service: ExperienceService,
               private message: MatSnackBar,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private connection: ConnectionService) {
+    this.isOnline = true;
   }
 
   ngOnInit(): void {
@@ -27,6 +31,11 @@ export class ExperienceComponent implements OnInit, OnDestroy {
     });
     this.loading = true;
     this.getExperiences();
+    this.connection.isOnline().subscribe(() => {
+      this.isOnline = true;
+    }, error => {
+      this.isOnline = false;
+    });
   }
 
   ngOnDestroy(): void {

@@ -7,11 +7,12 @@ import {
   MonacoEditorLoaderService,
   MonacoStandaloneCodeEditor
 } from '@materia-ui/ngx-monaco-editor';
-import {take} from 'rxjs/operators';
+import {take} from 'rxjs/internal/operators';
 import {filter} from 'rxjs/internal/operators/filter';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Subscription} from 'rxjs';
 import {AuthService} from '../../authentication/auth.service';
+import {ConnectionService} from '../../shareServices/connection.service';
 
 @Component({
   selector: 'app-about',
@@ -25,11 +26,14 @@ export class AboutComponent implements OnInit, OnDestroy {
   editorOptions: MonacoEditorConstructionOptions;
   isAuthenticated = false;
   private userSub: Subscription;
+  isOnline: boolean;
 
   constructor(private service: AboutService,
               private monacoLoaderService: MonacoEditorLoaderService,
               private message: MatSnackBar,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private connection: ConnectionService) {
+    this.isOnline = true;
   }
 
   ngOnInit(): void {
@@ -63,6 +67,11 @@ export class AboutComponent implements OnInit, OnDestroy {
         });
         this.loading = false;
       });
+    this.connection.isOnline().subscribe(() => {
+      this.isOnline = true;
+    }, error => {
+      this.isOnline = false;
+    });
   }
 
   ngOnDestroy(): void {

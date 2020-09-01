@@ -24,6 +24,7 @@ using System;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.StaticFiles;
 
 namespace Alimzfr
 {
@@ -270,6 +271,13 @@ namespace Alimzfr
             {
                 Authorization = new[] { new HangfireAuthFilter() }
             });
+
+            //var provider = new FileExtensionContentTypeProvider();
+            //provider.Mappings[".webmanifest"] = "application/manifest+json";
+            //app.UseStaticFiles(new StaticFileOptions()
+            //{
+            //    ContentTypeProvider = provider
+            //});
 
             app.UseEndpoints(endpoints =>
             {

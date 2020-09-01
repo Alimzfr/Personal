@@ -8,6 +8,7 @@ import {AuthService} from '../../../authentication/auth.service';
   providedIn: 'root'
 })
 export class EducationService {
+
   constructor(private http: HttpClient,
               private authService: AuthService) {
   }

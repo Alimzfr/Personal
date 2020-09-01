@@ -4,6 +4,7 @@ import {fas} from '@fortawesome/free-solid-svg-icons';
 import {far} from '@fortawesome/free-regular-svg-icons';
 import {fab} from '@fortawesome/free-brands-svg-icons';
 import {AuthService} from './authentication/auth.service';
+import {ConnectionService} from './shareServices/connection.service';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +12,18 @@ import {AuthService} from './authentication/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(library: FaIconLibrary,
-              private authService: AuthService) {
+  isConnect: boolean;
+
+  constructor(private library: FaIconLibrary,
+              private authService: AuthService,
+              private connection: ConnectionService) {
+    this.isConnect = true;
     library.addIconPacks(fas, far, fab);
   }
 
   ngOnInit() {
     this.authService.autoLogin();
+    console.log(this.connection.isOnline());
   }
 
 }

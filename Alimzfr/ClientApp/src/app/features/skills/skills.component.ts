@@ -3,6 +3,7 @@ import {SkillsService} from './skills.services/skills.service';
 import {ChartOptions, SkillModel} from './skills.models/skills.model';
 import {ChartComponent} from 'ng-apexcharts';
 import {Observable} from 'rxjs';
+import {ConnectionService} from '../../shareServices/connection.service';
 
 @Component({
   selector: 'app-skills',
@@ -14,13 +15,21 @@ export class SkillsComponent implements OnInit {
   skills: SkillModel[];
   chartSkills: ChartOptions[];
   loading: boolean;
+  isOnline: boolean;
 
-  constructor(private service: SkillsService) {
+  constructor(private service: SkillsService,
+              private connection: ConnectionService) {
+    this.isOnline = true;
   }
 
   ngOnInit(): void {
     this.loading = true;
     this.getSkills();
+    this.connection.isOnline().subscribe(() => {
+      this.isOnline = true;
+    }, error => {
+      this.isOnline = false;
+    });
   }
 
   getSkills() {

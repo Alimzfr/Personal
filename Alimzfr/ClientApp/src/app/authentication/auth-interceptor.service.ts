@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AuthService} from './auth.service';
 import {HttpErrorResponse, HttpHandler, HttpHeaders, HttpRequest} from '@angular/common/http';
-import {catchError, take} from 'rxjs/operators';
+import {catchError, take} from 'rxjs/internal/operators';
 import {exhaustMap} from 'rxjs/internal/operators/exhaustMap';
 import {CookieService} from 'ngx-cookie-service';
 import {of} from 'rxjs/internal/observable/of';

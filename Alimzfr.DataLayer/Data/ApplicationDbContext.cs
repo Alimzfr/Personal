@@ -1,12 +1,7 @@
-﻿using Alimzfr.DomainLayer.AuthEntities;
+﻿using Alimzfr.DomainLayer;
+using Alimzfr.DomainLayer.AuthEntities;
 using Alimzfr.DomainLayer.Entities;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Alimzfr.DataLayer.Data
 {
@@ -34,41 +29,7 @@ namespace Alimzfr.DataLayer.Data
             base.OnModelCreating(builder);
 
             // Custom application mappings
-            builder.Entity<User>(entity =>
-            {
-                entity.Property(e => e.Email).HasMaxLength(450).IsRequired();
-                entity.HasIndex(e => e.Email).IsUnique();
-                entity.Property(e => e.Password).IsRequired();
-                entity.Property(e => e.SerialNumber).HasMaxLength(450);
-                entity.Property(e => e.Username).HasMaxLength(450);
-            });
-
-            builder.Entity<Role>(entity =>
-            {
-                entity.Property(e => e.Name).HasMaxLength(450).IsRequired();
-                entity.HasIndex(e => e.Name).IsUnique();
-            });
-
-            builder.Entity<UserRole>(entity =>
-            {
-                entity.HasKey(e => new { e.UserId, e.RoleId });
-                entity.HasIndex(e => e.UserId);
-                entity.HasIndex(e => e.RoleId);
-                entity.Property(e => e.UserId);
-                entity.Property(e => e.RoleId);
-                entity.HasOne(d => d.Role).WithMany(p => p.UserRoles).HasForeignKey(d => d.RoleId);
-                entity.HasOne(d => d.User).WithMany(p => p.UserRoles).HasForeignKey(d => d.UserId);
-            });
-
-            builder.Entity<UserToken>(entity =>
-            {
-                entity.HasOne(ut => ut.User)
-                      .WithMany(u => u.UserTokens)
-                      .HasForeignKey(ut => ut.UserId);
-
-                entity.Property(ut => ut.RefreshTokenIdHash).HasMaxLength(450).IsRequired();
-                entity.Property(ut => ut.RefreshTokenIdHashSource).HasMaxLength(450);
-            });
+            builder.EntitiesConfiguration();
         }
     }
 }

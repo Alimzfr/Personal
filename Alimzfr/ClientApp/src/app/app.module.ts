@@ -45,6 +45,9 @@ import {AuthInterceptorService} from './authentication/auth-interceptor.service'
 import {AuthResponseModel} from './authentication/auth.model';
 import {CollegeEducationComponent} from './features/education/education.components/college-education/college-education.component';
 import {TrainingCourseComponent} from './features/education/education.components/training-course/training-course.component';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
+import {NgConnectionModule} from 'ng-connection';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -91,6 +94,7 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     MatDialogModule,
     MatSnackBarModule,
     MonacoEditorModule,
+    NgConnectionModule,
     NgxMaskModule.forRoot(options),
     JwtModule.forRoot({
       config: {
@@ -101,7 +105,8 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
         throwNoTokenError: false,
       }
     }),
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [
     CookieService,

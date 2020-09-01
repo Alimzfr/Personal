@@ -1,5 +1,4 @@
-import {AfterViewInit, Component, HostListener, OnDestroy, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 
 declare var Particles: any;
 

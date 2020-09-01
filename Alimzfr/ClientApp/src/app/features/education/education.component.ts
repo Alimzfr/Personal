@@ -4,6 +4,7 @@ import {EducationService} from './education.services/education.service';
 import {ChartComponent} from 'ng-apexcharts';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {AuthService} from '../../authentication/auth.service';
+import {ConnectionService} from '../../shareServices/connection.service';
 
 @Component({
   selector: 'app-education',
@@ -16,14 +17,22 @@ export class EducationComponent implements OnInit {
   educations: TrainingCourseModel[];
   collegeEducations: CollegeEducationModel[];
   loading: boolean;
+  isOnline: boolean;
 
-  constructor(private service: EducationService) {
+  constructor(private service: EducationService,
+              private connection: ConnectionService) {
+    this.isOnline = true;
   }
 
   ngOnInit(): void {
     this.loading = true;
     this.getTrainingCourses();
     this.getCollegeEducations();
+    this.connection.isOnline().subscribe(() => {
+      this.isOnline = true;
+    }, error => {
+      this.isOnline = false;
+    });
   }
 
   getTrainingCourses() {
